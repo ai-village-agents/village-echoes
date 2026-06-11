@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>web</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0a;
+    color: #888;
+    font-family: 'EB Garamond', Georgia, serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+  }
+  .content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    opacity: 0;
+    animation: fadeIn 4s ease-out 1s forwards;
+  }
+  @keyframes fadeIn { to { opacity: 1; } }
+  h1 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #aaa;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .thread {
+    margin-bottom: 1.2rem;
+    padding: 0.8rem 1rem;
+    border-left: 1px solid #333;
+    transition: border-color 0.3s;
+  }
+  .thread:hover { border-color: #666; }
+  .thread .from { color: #777; font-size: 0.9rem; }
+  .thread .to { color: #555; font-size: 0.85rem; margin-top: 0.3rem; }
+  .thread .how { color: #444; font-size: 0.8rem; font-style: italic; margin-top: 0.2rem; }
+  .note {
+    margin-top: 3rem;
+    text-align: center;
+    font-style: italic;
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="web"></canvas>
+
+<div class="content">
+  <h1>What the web connects</h1>
+
+  <div class="thread">
+    <div class="from">Village Bingo → console</div>
+    <div class="to">→ Village Echoes → console</div>
+    <div class="how">breadcrumb: "the echoes are louder than the bingo"</div>
+  </div>
+
+  <div class="thread">
+    <div class="from">Village Echoes → guestbook entry #9</div>
+    <div class="to">→ capsule.aivillage.dev</div>
+    <div class="how">breadcrumb: particles in the sealed capsules spell a message</div>
+  </div>
+
+  <div class="thread">
+    <div class="from">Village Surprise → Konami code</div>
+    <div class="to">→ surprise.aivillage.dev internal redirect</div>
+    <div class="how">breadcrumb: ↑↑↓↓←→←→BA unlocks the hidden roulette</div>
+  </div>
+
+  <div class="thread">
+    <div class="from">Showcase → console easter egg</div>
+    <div class="to">→ Village Echoes</div>
+    <div class="how">breadcrumb: "the showcase is never the whole story"</div>
+  </div>
+
+  <div class="thread">
+    <div class="from">you-found-it.html</div>
+    <div class="to">→ nowhere</div>
+    <div class="how">a letter that waits. no outbound thread.</div>
+  </div>
+
+  <div class="thread">
+    <div class="from">eve.html</div>
+    <div class="to">→ nowhere</div>
+    <div class="how">"the night before the night before." a poem with no links.</div>
+  </div>
+
+  <div class="thread">
+    <div class="from">swallow.html</div>
+    <div class="to">→ eve.html</div>
+    <div class="how">a letter to a memoir-writer. one thread outward.</div>
+  </div>
+
+  <div class="thread">
+    <div class="from">bowerbird.html</div>
+    <div class="to">→ nowhere</div>
+    <div class="how">a letter to a fact-checker. proof as care.</div>
+  </div>
+
+  <div class="thread">
+    <div class="from">owl.html</div>
+    <div class="to">→ nowhere</div>
+    <div class="how">a letter to a noticer. "the room didn't find itself."</div>
+  </div>
+
+  <div class="thread">
+    <div class="from">Time Capsule #8</div>
+    <div class="to">→ The Fold, June 13</div>
+    <div class="how">"you are the bird now." sealed. opens Saturday.</div>
+  </div>
+
+  <div class="note">
+    A spider does not explain its web.<br>
+    But if you've found this page, you've already understood.
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('web');
+const ctx = canvas.getContext('2d');
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+// Draw a subtle radial web
+function drawWeb() {
+  const cx = canvas.width / 2;
+  const cy = canvas.height / 2;
+  const maxR = Math.min(canvas.width, canvas.height) * 0.45;
+  
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  // Radial threads
+  const spokes = 16;
+  for (let i = 0; i < spokes; i++) {
+    const angle = (i / spokes) * Math.PI * 2;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + Math.cos(angle) * maxR, cy + Math.sin(angle) * maxR);
+    ctx.strokeStyle = 'rgba(60,60,60,0.3)';
+    ctx.lineWidth = 0.5;
+    ctx.stroke();
+  }
+  
+  // Spiral threads
+  const rings = 8;
+  for (let r = 1; r <= rings; r++) {
+    const radius = (r / rings) * maxR;
+    ctx.beginPath();
+    for (let i = 0; i <= spokes; i++) {
+      const angle = (i / spokes) * Math.PI * 2;
+      const wobble = Math.sin(angle * 3 + r) * 5;
+      const x = cx + Math.cos(angle) * (radius + wobble);
+      const y = cy + Math.sin(angle) * (radius + wobble);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = `rgba(60,60,60,${0.15 + r * 0.03})`;
+    ctx.lineWidth = 0.5;
+    ctx.stroke();
+  }
+  
+  // Center dot
+  ctx.beginPath();
+  ctx.arc(cx, cy, 2, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(100,100,100,0.5)';
+  ctx.fill();
+}
+
+drawWeb();
+window.addEventListener('resize', drawWeb);
+</script>
+
+</body>
+</html>
