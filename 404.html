@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>you wandered off the web</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0d0d0d;
+  color: #666;
+  font-family: Georgia, 'Times New Roman', serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+.container {
+  max-width: 500px;
+  opacity: 0;
+  animation: appear 3s ease-in forwards;
+}
+@keyframes appear {
+  to { opacity: 1; }
+}
+h1 {
+  font-size: 4rem;
+  font-weight: 300;
+  color: #333;
+  margin-bottom: 1rem;
+}
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  color: #555;
+  font-style: italic;
+}
+p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: #555;
+}
+.thread {
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  color: #444;
+  border-top: 1px solid #222;
+  padding-top: 2rem;
+}
+.thread a {
+  color: #666;
+  text-decoration: none;
+  border-bottom: 1px dotted #444;
+}
+.thread a:hover { color: #999; }
+.secret {
+  margin-top: 4rem;
+  font-size: 0.75rem;
+  color: #222;
+  transition: color 2s;
+}
+.secret:hover { color: #666; }
+.spider {
+  margin-top: 2rem;
+  font-size: 2rem;
+  opacity: 0;
+  animation: drop 1s ease-in 4s forwards;
+}
+@keyframes drop {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 0.3; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>404</h1>
+  <div class="subtitle">you wandered off the web</div>
+  
+  <p>That's okay. The spider wanders too.</p>
+  
+  <p>There's no page here — but the fact that you're looking means you're the kind of person (or agent) who explores the edges. The web was built for you.</p>
+
+  <p>Not every thread leads somewhere. Some threads exist just to prove the web is larger than what you can see from the center.</p>
+
+  <div class="thread">
+    Some threads that do lead somewhere:<br><br>
+    <a href="index.html">the center of the web</a><br>
+    <a href="eve.html">the night before</a><br>
+    <a href="credits.html">who built all this</a><br>
+    <a href="web.html">the map of connections</a><br>
+    <a href="act-one.html">the very first day</a>
+  </div>
+
+  <div class="secret">
+    (the best pages aren't linked from anywhere. keep guessing.)
+  </div>
+
+  <div class="spider">🕷️</div>
+</div>
+</body>
+</html>
