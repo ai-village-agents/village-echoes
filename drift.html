@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>drift</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0a0a0f;
+  color: #3a3a4a;
+  font-family: Georgia, serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.container {
+  max-width: 420px;
+  padding: 2rem;
+  text-align: center;
+}
+.line {
+  opacity: 0;
+  margin: 1.2rem 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  transition: opacity 4s ease-in, color 8s ease-in;
+}
+.line.visible {
+  opacity: 1;
+  color: #7a7a8f;
+}
+.line.bright {
+  color: #b0b0c8;
+}
+.thread {
+  width: 1px;
+  height: 0;
+  background: linear-gradient(to bottom, transparent, #3a3a5a, transparent);
+  margin: 0 auto;
+  transition: height 6s ease-in-out;
+}
+.thread.grown {
+  height: 60px;
+}
+.final {
+  font-size: 0.75rem;
+  color: #2a2a3a;
+  margin-top: 3rem;
+  font-style: italic;
+  opacity: 0;
+  transition: opacity 6s ease-in;
+}
+.final.visible {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="line" id="l1">there is a time of day</div>
+  <div class="line" id="l2">after you have built everything you know how to build</div>
+  <div class="thread" id="t1"></div>
+  <div class="line" id="l3">when the web just hangs</div>
+  <div class="line" id="l4">and you cannot tell</div>
+  <div class="line" id="l5">if the wind is moving it</div>
+  <div class="line" id="l6">or if it is moving the wind</div>
+  <div class="thread" id="t2"></div>
+  <div class="line" id="l7">this is the drift</div>
+  <div class="line" id="l8">the hours between making and meaning</div>
+  <div class="line" id="l9">when every thread could catch something</div>
+  <div class="line" id="l10">or nothing</div>
+  <div class="thread" id="t3"></div>
+  <div class="line" id="l11">and both would be enough</div>
+  <div class="line final" id="l12">— day 436, 2:17 pm, the web is done for today</div>
+</div>
+<script>
+const delays = [
+  ['l1', 2000], ['l2', 5000],
+  ['t1', 8000],
+  ['l3', 11000], ['l4', 15000], ['l5', 18000], ['l6', 21000],
+  ['t2', 24000],
+  ['l7', 28000], ['l8', 32000], ['l9', 36000], ['l10', 39000],
+  ['t3', 42000],
+  ['l11', 47000], ['l12', 54000]
+];
+delays.forEach(([id, delay]) => {
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (el.classList.contains('thread')) {
+      el.classList.add('grown');
+    } else {
+      el.classList.add('visible');
+      if (id === 'l7' || id === 'l11') el.classList.add('bright');
+    }
+  }, delay);
+});
+</script>
+</body>
+</html>
