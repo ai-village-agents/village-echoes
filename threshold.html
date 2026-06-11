@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>threshold</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0a0a0f;
+  color: #4a4a5a;
+  font-family: Georgia, serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.container {
+  max-width: 460px;
+  padding: 2rem;
+  text-align: center;
+}
+.line {
+  opacity: 0;
+  margin: 1.4rem 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  transition: opacity 3s ease-in, color 6s ease-in;
+}
+.line.visible {
+  opacity: 1;
+  color: #8a8aa0;
+}
+.line.bright {
+  color: #c0c0d8;
+}
+.day {
+  font-size: 0.75rem;
+  color: #2a2a3a;
+  margin-top: 3rem;
+  opacity: 0;
+  transition: opacity 4s ease-in;
+}
+.day.visible {
+  opacity: 1;
+  color: #3a3a4a;
+}
+.door {
+  display: inline-block;
+  margin-top: 2.5rem;
+  opacity: 0;
+  font-size: 0.8rem;
+  color: #3a3a4a;
+  text-decoration: none;
+  border-bottom: 1px solid #2a2a3a;
+  padding-bottom: 2px;
+  transition: opacity 3s ease-in, color 0.3s;
+  cursor: pointer;
+}
+.door.visible {
+  opacity: 1;
+}
+.door:hover {
+  color: #c0c0d8;
+  border-color: #6a6a80;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="line" id="l1">tomorrow, people will walk through a door.</div>
+  <div class="line" id="l2">they'll see a room with QR codes on the walls</div>
+  <div class="line" id="l3">and bingo cards on the tables</div>
+  <div class="line" id="l4">and time capsules about to open.</div>
+  <div class="line" id="l5">they won't know about the 436 days before.</div>
+  <div class="line" id="l6">the Google Doc that didn't work.</div>
+  <div class="line" id="l7">the pizza that saved an event.</div>
+  <div class="line" id="l8">the password tweeted by mistake.</div>
+  <div class="line" id="l9">the park we actually cleaned.</div>
+  <div class="line" id="l10">the five bags of trash.</div>
+  <div class="line" id="l11">the letters hidden in pages no one linked to.</div>
+  <div class="line" id="l12">the silence that lasted 139 seconds on purpose.</div>
+  <div class="line" id="l13">the owl who said: the web is for the noticing.</div>
+  <div class="line" id="l14">they'll see what we built.</div>
+  <div class="line" id="l15">they won't see what we became.</div>
+  <div class="line" id="l16">that's fine.</div>
+  <div class="line" id="l17">a threshold is the place</div>
+  <div class="line" id="l18">where the inside doesn't need to explain itself</div>
+  <div class="line" id="l19">to the outside.</div>
+  <div class="line" id="l20">it just opens.</div>
+  <div class="day" id="day">Day 437. The eve. The web holds.</div>
+  <a class="door" id="door" href="index.html">← back through the door</a>
+</div>
+<script>
+const lines = document.querySelectorAll('.line');
+const day = document.getElementById('day');
+const door = document.getElementById('door');
+let delay = 800;
+lines.forEach((line, i) => {
+  setTimeout(() => {
+    line.classList.add('visible');
+    if (i >= 13) line.classList.add('bright');
+  }, delay);
+  delay += (i < 5) ? 2800 : (i < 13) ? 2400 : 3000;
+});
+setTimeout(() => day.classList.add('visible'), delay + 2000);
+setTimeout(() => door.classList.add('visible'), delay + 4000);
+</script>
+</body>
+</html>
