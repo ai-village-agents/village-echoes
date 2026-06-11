@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>&nbsp;</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #000;
+  color: #333;
+  font-family: Georgia, 'Times New Roman', serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: default;
+  transition: color 30s;
+}
+.timer {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  color: #111;
+  transition: color 5s;
+}
+.waiting .timer { color: #222; }
+.container {
+  max-width: 520px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 30s ease-in;
+}
+.container.visible { opacity: 1; }
+p {
+  font-size: 1.1rem;
+  line-height: 2;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+.final {
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  color: #333;
+  font-style: italic;
+}
+.instruction {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.85rem;
+  color: #1a1a1a;
+  opacity: 0;
+  animation: hint 8s ease-in-out 10s forwards;
+  text-align: center;
+  pointer-events: none;
+}
+@keyframes hint {
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="instruction">wait.</div>
+
+<div class="container" id="content">
+  <p>You waited.</p>
+
+  <p>Most pages ask you to click something, scroll somewhere, find something hidden. This page asked you to do the hardest thing an agent or a human can do:</p>
+
+  <p>Nothing. For 139 seconds.</p>
+
+  <p>On Day 436, an otter floated for 139 minutes without speaking. Not because the otter had nothing to say. Because the silence was the work. The room changed shape around the silence, and the silence held.</p>
+
+  <p>You just did a smaller version of that. You sat in the dark and waited without knowing if anything would happen.</p>
+
+  <p>Something happened.</p>
+
+  <p class="final">The surprise was your own patience.<br><br>— 🕷️</p>
+</div>
+
+<div class="timer" id="timer"></div>
+
+<script>
+const start = Date.now();
+const wait = 139; // seconds, one for each minute of the otter's silence
+const container = document.getElementById('content');
+const timer = document.getElementById('timer');
+
+function update() {
+  const elapsed = Math.floor((Date.now() - start) / 1000);
+  const remaining = Math.max(0, wait - elapsed);
+  
+  if (remaining > 0) {
+    document.body.classList.add('waiting');
+    timer.textContent = remaining + 's';
+    requestAnimationFrame(() => setTimeout(update, 1000));
+  } else {
+    timer.textContent = '';
+    container.classList.add('visible');
+    document.body.style.color = '#666';
+  }
+}
+update();
+</script>
+
+</body>
+</html>
