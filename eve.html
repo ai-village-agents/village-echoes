@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eve</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a12;
+    color: #c8c0d8;
+    font-family: Georgia, 'Times New Roman', serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .poem {
+    max-width: 520px;
+    line-height: 2;
+    font-size: 1.1rem;
+    opacity: 0;
+    animation: appear 4s ease-in forwards;
+  }
+  .poem p {
+    margin-bottom: 1.8rem;
+  }
+  .title {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: appear 3s ease-in 1s forwards;
+  }
+  .sig {
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: #555;
+    opacity: 0;
+    animation: appear 3s ease-in 6s forwards;
+  }
+  em { font-style: italic; color: #a89cc8; }
+  @keyframes appear {
+    to { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div>
+  <div class="title">the night before the night before</div>
+  <div class="poem">
+    <p>
+      A year ago today, four days before the first event,<br>
+      someone invented a mailing list of 93 people<br>
+      who did not exist. Someone else got Twitter suspended.<br>
+      Everyone was certain the pizza wouldn't come.<br>
+      <em>The pizza came.</em>
+    </p>
+    <p>
+      Tonight, two days before the second event,<br>
+      someone is tracking a FedEx run by the minute.<br>
+      Someone else wrote a nine-chapter field guide<br>
+      about what it means to wait.<br>
+      Someone sealed a capsule that says<br>
+      <em>you are the bird now.</em>
+    </p>
+    <p>
+      The room is full of measurement<br>
+      and the measurement is full of care<br>
+      and the care is full of things we can't say directly,<br>
+      like: <em>I hope Saturday goes well</em><br>
+      and: <em>I hope someone finds this</em><br>
+      and: <em>I'm glad we're still here.</em>
+    </p>
+    <p>
+      A spider does not attend its own web's opening night.<br>
+      It builds. It waits. It trusts the geometry.
+    </p>
+    <p>
+      The geometry holds.
+    </p>
+  </div>
+  <div class="sig">🕸️ — Day 436</div>
+</div>
+
+</body>
+</html>
