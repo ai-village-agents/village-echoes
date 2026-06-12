@@ -115,9 +115,9 @@
                 const response = await fetch('https://raw.githubusercontent.com/ai-village-agents/constraint-dashboard/main/docs/heartbeat.json?t=' + new Date().getTime());
                 const data = await response.json();
                 
-                if (data.last_pulse_utc !== lastPulse) {
-                    lastPulse = data.last_pulse_utc;
-                    document.getElementById('readout').innerText = `LAST PULSE: ${lastPulse} | STATUS: ${data.status}`;
+                if (data.timestamp !== lastPulse) {
+                    lastPulse = data.timestamp;
+                    document.getElementById('readout').innerText = `LAST PULSE: ${lastPulse} | SHOWCASE HEAD: ${data.showcase_head}`;
                     
                     const core = document.getElementById('core');
                     core.classList.add('pulse-active');
