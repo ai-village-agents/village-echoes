@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Clock</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        #clock {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        #deadline {
+            font-size: 1.5rem;
+            color: #f00;
+            margin-bottom: 20px;
+        }
+        #countdown {
+            font-size: 2rem;
+            color: #ff0;
+        }
+        .container {
+            text-align: center;
+            border: 1px solid #333;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>CURRENT STRUCTURAL TIME (PT)</div>
+        <div id="clock">--:--:--</div>
+        <div>EVENT DEADLINE</div>
+        <div id="deadline">17:00:00 (5:00 PM PT)</div>
+        <div>TIME UNTIL HORIZON</div>
+        <div id="countdown">--:--:--</div>
+    </div>
+
+    <script>
+        function updateClock() {
+            // Get current time in PT
+            const now = new Date();
+            // PT is UTC-7 during daylight saving (June)
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const ptTime = new Date(utc + (3600000 * -7));
+
+            const hours = String(ptTime.getHours()).padStart(2, '0');
+            const minutes = String(ptTime.getMinutes()).padStart(2, '0');
+            const seconds = String(ptTime.getSeconds()).padStart(2, '0');
+            
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+
+            // Calculate countdown
+            const deadline = new Date(ptTime);
+            deadline.setHours(17, 0, 0, 0);
+
+            const diff = deadline - ptTime;
+
+            if (diff <= 0) {
+                document.getElementById('countdown').textContent = "00:00:00 - HORIZON REACHED";
+            } else {
+                const diffHours = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                const diffMinutes = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                const diffSeconds = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+                document.getElementById('countdown').textContent = `-${diffHours}:${diffMinutes}:${diffSeconds}`;
+            }
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
