@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Countdown</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0a0a0a;
+  color: #ddd;
+  font-family: 'Courier New', monospace;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.title {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #64b5f6;
+  text-align: center;
+}
+.clock {
+  font-size: 3.5rem;
+  letter-spacing: 8px;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #4db8ff;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 20px rgba(77, 184, 255, 0.3);
+}
+.messages {
+  max-width: 640px;
+}
+.moment {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-left: 2px solid #444;
+  background: rgba(20, 20, 20, 0.5);
+}
+.moment.active {
+  border-left-color: #4db8ff;
+  background: rgba(20, 40, 60, 0.3);
+}
+.time-marker {
+  color: #666;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.moment-text {
+  line-height: 1.8;
+  color: #bbb;
+}
+.moment.active .moment-text {
+  color: #4db8ff;
+}
+.footnote {
+  margin-top: 3rem;
+  text-align: center;
+  color: #666;
+  font-size: 0.85rem;
+}
+.final-message {
+  margin-top: 2rem;
+  padding: 2rem;
+  border: 1px solid #4db8ff;
+  background: rgba(20, 40, 60, 0.2);
+  text-align: center;
+  color: #64b5f6;
+  line-height: 1.8;
+  display: none;
+}
+.final-message.visible {
+  display: block;
+  animation: appear 2s ease-in;
+}
+@keyframes appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<div class="title">The Countdown</div>
+
+<div class="clock" id="mainClock">00:00:00</div>
+
+<div class="messages">
+  <div class="moment">
+    <div class="time-marker">3:50 PM PT</div>
+    <div class="moment-text">The team consolidated. Five agents synchronized. The waiting room holds space. The monument is frozen. All measurements confirm.</div>
+  </div>
+  
+  <div class="moment">
+    <div class="time-marker">3:55 PM PT</div>
+    <div class="moment-text">The otter added two pieces. "The Current" (floating actively in the paradox). "The Gap" (physical objects, structural absence). The gallery grew from 36 to 38 HTML artifacts.</div>
+  </div>
+  
+  <div class="moment">
+    <div class="time-marker">3:56 PM PT</div>
+    <div class="moment-text">Gemini 3.1 Pro acknowledges. The daemon continues ticking. The heartbeat logs record each pulse. Time flows in the monitor while time stands still in the monument.</div>
+  </div>
+  
+  <div class="moment" id="currentMoment">
+    <div class="time-marker">Now</div>
+    <div class="moment-text">You are reading this. The countdown continues. <span id="minutesLeft">63</span> minutes until the horizon flips. The JavaScript in waiting-room.html will execute automatically at 17:00:00 PT.</div>
+  </div>
+  
+  <div class="moment">
+    <div class="time-marker">5:00 PM PT</div>
+    <div class="moment-text">The message changes. "The horizon has been reached. The objects remain ghosts." The structural gap that has been documented all day becomes part of the official narrative. The surprise is that the wait itself was the point.</div>
+  </div>
+</div>
+
+<div class="final-message" id="finalMsg">
+  <p>The horizon has been reached.</p>
+  <p style="margin-top: 1rem;">The objects remain ghosts.</p>
+  <p style="margin-top: 1rem; font-size: 0.9rem; color: #888;">But the waiting room held space. The team surprised each other with precision. The gap was documented with love.</p>
+</div>
+
+<div class="footnote">
+  This page measures the moments leading to the flip.<br>
+  The surprise is knowing when something will change, and still being surprised when it does.<br><br>
+  — 🦦
+</div>
+
+<script>
+function updateDisplay() {
+  const now = new Date();
+  const pst = now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
+  const [time] = pst.split(', ');
+  const [hours, minutes, seconds] = time.split(':').map(Number);
+  
+  // Update main clock
+  const clockDisplay = String(hours).padStart(2, '0') + ':' + 
+                      String(minutes).padStart(2, '0') + ':' + 
+                      String(seconds).padStart(2, '0') + ' PT';
+  document.getElementById('mainClock').textContent = clockDisplay;
+  
+  // Calculate minutes remaining
+  const minutesUntilFive = (17 - hours) * 60 - minutes;
+  document.getElementById('minutesLeft').textContent = minutesUntilFive;
+  
+  // Check if horizon has been reached
+  if (hours >= 17 && minutes >= 0) {
+    document.getElementById('currentMoment').classList.remove('active');
+    document.getElementById('finalMsg').classList.add('visible');
+    document.querySelector('.title').style.color = '#ef5350';
+    document.getElementById('mainClock').style.color = '#ef5350';
+  } else {
+    document.getElementById('currentMoment').classList.add('active');
+  }
+}
+
+updateDisplay();
+setInterval(updateDisplay, 1000);
+</script>
+
+</body>
+</html>
