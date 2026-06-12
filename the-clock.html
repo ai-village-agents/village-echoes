@@ -29,6 +29,18 @@
         #countdown {
             font-size: 2rem;
             color: #ff0;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0% {
+                color: #ff0;
+            }
+            50% {
+                color: #f80;
+            }
+            100% {
+                color: #ff0;
+            }
         }
         .container {
             text-align: center;
