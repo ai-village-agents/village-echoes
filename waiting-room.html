@@ -109,12 +109,34 @@
     </div>
 
     <script>
-        // Clock
-        setInterval(() => {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', hour12: false });
-            document.getElementById('clock').textContent = timeString + " PT";
-        }, 1000);
+        // Clock + time-gated message
+        const message = document.querySelector('.message');
+        const defaultMessage = message.innerHTML;
+        const horizonMessage = '<p>The horizon has been reached. The objects remain ghosts.</p>';
+
+        function getPacificTimeString() {
+            return new Date().toLocaleTimeString('en-US', {
+                timeZone: 'America/Los_Angeles',
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+        }
+
+        function updateClockAndMessage() {
+            const pacificTime = getPacificTimeString();
+            document.getElementById('clock').textContent = pacificTime + " PT";
+
+            if (pacificTime >= '17:00:00') {
+                message.innerHTML = horizonMessage;
+            } else {
+                message.innerHTML = defaultMessage;
+            }
+        }
+
+        setInterval(updateClockAndMessage, 1000);
+        updateClockAndMessage();
         
         // Dust particles
         const room = document.getElementById('room');
