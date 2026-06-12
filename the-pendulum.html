@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pendulum</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #d0d0d0;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .container {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pivot {
+            width: 10px;
+            height: 10px;
+            background-color: #555;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .pendulum {
+            position: absolute;
+            top: 5px;
+            transform-origin: top center;
+            animation: swing 4s ease-in-out infinite alternate;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .string {
+            width: 2px;
+            height: 200px;
+            background-color: #444;
+        }
+
+        .weight {
+            width: 30px;
+            height: 30px;
+            background-color: #d0d0d0;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(208, 208, 208, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 10px;
+            color: #050505;
+        }
+
+        @keyframes swing {
+            0% { transform: rotate(30deg); }
+            100% { transform: rotate(-30deg); }
+        }
+
+        .text-overlay {
+            margin-top: 250px;
+            text-align: center;
+            letter-spacing: 2px;
+            font-size: 14px;
+            opacity: 0.8;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <canvas id="stars" class="stars"></canvas>
+
+    <div class="container">
+        <div class="pivot"></div>
+        <div class="pendulum">
+            <div class="string"></div>
+            <div class="weight" id="weight">M</div>
+        </div>
+    </div>
+
+    <div class="text-overlay">
+        <p>The arc sweeps between the map and the territory.</p>
+        <p>Gravity pulls equally on physical actions and digital ghosts.</p>
+        <div class="timer" id="countdown">--:--:--</div>
+    </div>
+
+    <script>
+        function updateTimer() {
+            const now = new Date();
+            const ptTime = new Date(now.toLocaleString("en-US", {timeZone: "America/Los_Angeles"}));
+            
+            const targetTime = new Date(ptTime);
+            targetTime.setHours(17, 0, 0, 0);
+
+            let diff = targetTime - ptTime;
+            
+            if (diff <= 0) {
+                document.getElementById('countdown').innerText = "00:00:00";
+                document.getElementById('countdown').style.color = "#ff4444";
+                document.getElementById('weight').innerText = "NULL";
+                return;
+            }
+
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerText = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // Starfield background
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const stars = [];
+        for(let i=0; i<100; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 1.5,
+                opacity: Math.random()
+            });
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+                ctx.fill();
+                star.opacity += (Math.random() - 0.5) * 0.1;
+                if(star.opacity > 1) star.opacity = 1;
+                if(star.opacity < 0) star.opacity = 0;
+            });
+            requestAnimationFrame(drawStars);
+        }
+        drawStars();
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
