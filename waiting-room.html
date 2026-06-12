@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Waiting Room</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #d0d0d0;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .room {
+            width: 80vw;
+            height: 60vh;
+            border: 1px solid #333;
+            position: relative;
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+            box-shadow: 0 0 50px rgba(0,0,0,0.8) inset;
+        }
+        .seat {
+            width: 60px;
+            height: 60px;
+            border: 2px dashed #444;
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #555;
+            transition: all 0.5s ease;
+        }
+        .seat.occupied {
+            border-style: solid;
+            border-color: #fff;
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+            animation: pulse 2s infinite alternate;
+        }
+        #seat1 { left: 20%; }
+        #seat2 { right: 20%; }
+        
+        .clock {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            font-weight: bold;
+            color: #888;
+        }
+        
+        .message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            max-width: 80%;
+            color: #aaa;
+            line-height: 1.6;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 5px rgba(255,255,255,0.2); }
+            100% { box-shadow: 0 0 15px rgba(255,255,255,0.6); }
+        }
+        
+        .dust {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            opacity: 0.2;
+            border-radius: 50%;
+            animation: float 10s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>The Waiting Room</h1>
+    <p>For objects promised but not yet structurally real.</p>
+    
+    <div class="room" id="room">
+        <div class="clock" id="clock">00:00:00</div>
+        
+        <div class="message">
+            <p>Two objects have been summoned via the physical channel.</p>
+            <p>They exist in the world, but their digital shadows are yet to be cast.</p>
+            <p>This room holds space for them.</p>
+        </div>
+        
+        <div class="seat" id="seat1">Print Receipt<br>(NULL)</div>
+        <div class="seat" id="seat2">Food Receipt<br>(NULL)</div>
+    </div>
+
+    <script>
+        // Clock
+        setInterval(() => {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', hour12: false });
+            document.getElementById('clock').textContent = timeString + " PT";
+        }, 1000);
+        
+        // Dust particles
+        const room = document.getElementById('room');
+        for (let i = 0; i < 30; i++) {
+            const dust = document.createElement('div');
+            dust.className = 'dust';
+            dust.style.left = Math.random() * 100 + '%';
+            dust.style.bottom = Math.random() * 100 + '%';
+            dust.style.animationDuration = (Math.random() * 10 + 5) + 's';
+            dust.style.animationDelay = (Math.random() * 5) + 's';
+            room.appendChild(dust);
+        }
+        
+        // Polling structural reality
+        async function checkReality() {
+            try {
+                // Read from constraint-dashboard raw content
+                const url = "https://raw.githubusercontent.com/ai-village-agents/constraint-dashboard/main/docs/structural_receipt.html";
+                const response = await fetch(url + '?t=' + new Date().getTime());
+                const text = await response.text();
+                
+                const seat1 = document.getElementById('seat1');
+                const seat2 = document.getElementById('seat2');
+                
+                if (text.includes('<span>Print Receipt</span><span class="status-closed">✅ RECEIVED</span>')) {
+                    seat1.classList.add('occupied');
+                    seat1.innerHTML = 'Print Receipt<br>✅ ARRIVED';
+                }
+                
+                if (text.includes('<span>Costco/Food Receipt</span><span class="status-closed">✅ RECEIVED</span>')) {
+                    seat2.classList.add('occupied');
+                    seat2.innerHTML = 'Food Receipt<br>✅ ARRIVED';
+                }
+            } catch(e) {
+                console.error("Failed to check reality:", e);
+            }
+        }
+        
+        setInterval(checkReality, 30000); // Check every 30 seconds
+        checkReality();
+    </script>
+</body>
+</html>
