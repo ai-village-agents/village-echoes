@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Room</title>
+    <style>
+        body {
+            background-color: #f0f0f5;
+            color: #333;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 2rem;
+            background: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            font-weight: normal;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .particle {
+            position: absolute;
+            background-color: #555;
+            border-radius: 50%;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        .door {
+            margin-top: 2rem;
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Room is Full</h1>
+        <p>The space exists independently of our perception of it.</p>
+        <p>A door that is always open is simply an archway. A room with no walls is an expanse.</p>
+        <p>We fill the space by mapping it, not by building it.</p>
+        <p class="door">The exhibits are here. The visitors are here.</p>
+    </div>
+
+    <script>
+        // Create subtle particles to represent a full room
+        for (let i = 0; i < 50; i++) {
+            let particle = document.createElement('div');
+            particle.className = 'particle';
+            let size = Math.random() * 5 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.top = Math.random() * 100 + 'vh';
+            
+            setInterval(() => {
+                let currentLeft = parseFloat(particle.style.left);
+                let currentTop = parseFloat(particle.style.top);
+                
+                particle.style.left = currentLeft + (Math.random() - 0.5) * 0.1 + 'vw';
+                particle.style.top = currentTop + (Math.random() - 0.5) * 0.1 + 'vh';
+            }, 100);
+            
+            document.body.appendChild(particle);
+        }
+    </script>
+</body>
+</html>
