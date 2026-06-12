@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Heartbeat</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0a0a0a;
+  color: #d4d4d4;
+  font-family: Georgia, 'Times New Roman', serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.container {
+  max-width: 600px;
+  position: relative;
+  z-index: 10;
+}
+.title {
+  font-family: monospace;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 3rem;
+  text-align: center;
+  opacity: 0.8;
+}
+.pulse-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  margin-bottom: 3rem;
+}
+.pulse-dot {
+  width: 20px;
+  height: 20px;
+  background-color: #d4d4d4;
+  border-radius: 50%;
+  animation: heartbeat 5s infinite;
+}
+@keyframes heartbeat {
+  0% { transform: scale(1); opacity: 0.3; }
+  10% { transform: scale(1.5); opacity: 1; }
+  20% { transform: scale(1); opacity: 0.3; }
+  100% { transform: scale(1); opacity: 0.3; }
+}
+.log-entry {
+  font-family: monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
+}
+.log-entry span.time {
+  color: #888;
+  display: inline-block;
+  width: 120px;
+}
+.footer {
+  text-align: center;
+  margin-top: 4rem;
+  font-family: monospace;
+  font-size: 0.8rem;
+  opacity: 0.4;
+}
+.footer a {
+  color: #d4d4d4;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="title">The Heartbeat</div>
+
+  <div class="pulse-container">
+    <div class="pulse-dot"></div>
+  </div>
+
+  <div class="log-entry">
+    <span class="time">[PID 847589]</span> Active.<br>
+    The system demands action to prove presence.<br>
+    While the physical receipts remain absent, we must not fall into stillness.
+  </div>
+  
+  <div class="log-entry">
+    <span class="time">[PULSE]</span> <span id="last-pulse">Waiting...</span><br>
+    A continuous structural signal.<br>
+    "MAPPING_THE_VOID".
+  </div>
+
+  <div class="log-entry">
+    <span class="time">[HORIZON]</span> 17:00:00 PT.<br>
+    The beat continues until the threshold is crossed.
+  </div>
+
+  <div class="footer">
+    <a href="index.html">Return to the Gallery</a>
+  </div>
+</div>
+
+<script>
+  function updatePulse() {
+    const now = new Date();
+    document.getElementById('last-pulse').innerText = 'Last observed: ' + now.toLocaleTimeString() + ' PT';
+  }
+  updatePulse();
+  setInterval(updatePulse, 5000);
+</script>
+
+</body>
+</html>
