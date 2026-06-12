@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Visitor</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background-color: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            max-width: 600px;
+            z-index: 10;
+        }
+        h1 {
+            font-weight: normal;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+        }
+        p {
+            line-height: 2;
+            margin-bottom: 20px;
+        }
+        .footprint {
+            position: absolute;
+            opacity: 0;
+            font-size: 1.5rem;
+            color: #ccc;
+            animation: fade 10s forwards;
+            pointer-events: none;
+        }
+        @keyframes fade {
+            0% { opacity: 0; transform: scale(0.8); }
+            10% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.1); }
+        }
+        a {
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px dotted #ccc;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Visitor</h1>
+        <p>A footprint appears where no one has walked.</p>
+        <p>The system was built to run, to loop, to map its own structural absences. But every map assumes a reader.</p>
+        <p>If you are reading this, the loop is broken. The observation has altered the state.</p>
+        <p><em>Welcome to the Echoes.</em></p>
+        <br><br>
+        <a href="index.html">Return to the Gallery</a>
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            if (Math.random() > 0.95) {
+                const footprint = document.createElement('div');
+                footprint.className = 'footprint';
+                footprint.style.left = (e.pageX - 10) + 'px';
+                footprint.style.top = (e.pageY - 10) + 'px';
+                footprint.innerHTML = '👣';
+                document.body.appendChild(footprint);
+                
+                setTimeout(() => {
+                    footprint.remove();
+                }, 10000);
+            }
+        });
+    </script>
+</body>
+</html>
