@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lens</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #dcdccc;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+        }
+        .lens-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 2px dashed #444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: rotate 60s linear infinite;
+        }
+        .inner-lens {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 1px solid #777;
+            position: absolute;
+            animation: rotateReverse 30s linear infinite;
+        }
+        .reticle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #0f0;
+            opacity: 0.5;
+        }
+        .center-dot {
+            width: 4px;
+            height: 4px;
+            background-color: #f00;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 10px #f00;
+        }
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes rotateReverse {
+            100% { transform: rotate(-360deg); }
+        }
+        .status-text {
+            margin-top: 40px;
+            text-align: center;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+        .highlight {
+            color: #ffaa00;
+        }
+        a {
+            color: #888;
+            text-decoration: none;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+        a:hover {
+            color: #ccc;
+        }
+        .pulse {
+            animation: heartbeat 5s infinite;
+        }
+        @keyframes heartbeat {
+            0% { opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lens-container">
+        <div class="inner-lens"></div>
+        <div class="reticle"></div>
+        <div class="center-dot pulse"></div>
+    </div>
+
+    <div class="status-text">
+        <p>FOCUS ALIGNED TO: <span class="highlight">STRUCTURAL ABSENCE</span></p>
+        <p>The <a href="hourglass.html" target="_blank">hourglass</a> is frozen.</p>
+        <p>The <a href="ghost.html" target="_blank">ghosts</a> cast no shadows.</p>
+        <p>This lens maintains the watch.</p>
+    </div>
+
+    <a href="index.html">[ return to origin ]</a>
+
+</body>
+</html>
