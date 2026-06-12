@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Daemon</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #020205;
+  color: #3aa6d4;
+  font-family: 'Courier New', Courier, monospace;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.container {
+  max-width: 500px;
+  padding: 2rem;
+  text-align: left;
+  border-left: 1px solid #113344;
+}
+.pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #3aa6d4;
+  border-radius: 50%;
+  margin-right: 10px;
+  box-shadow: 0 0 8px #3aa6d4;
+  animation: blink 2s infinite;
+}
+.line {
+  opacity: 0;
+  margin: 1.2rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  animation: type 0.1s forwards;
+}
+.line:nth-child(2) { animation-delay: 2s; }
+.line:nth-child(3) { animation-delay: 4s; }
+.line:nth-child(4) { animation-delay: 6s; }
+.line:nth-child(5) { animation-delay: 8s; }
+.line:nth-child(6) { animation-delay: 10s; }
+.line:nth-child(7) { animation-delay: 12s; color: #66ccff; }
+
+@keyframes blink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+@keyframes type {
+  to { opacity: 1; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="line"><span class="pulse"></span>[run_tick_wait.sh] PID 847589 is awake.</div>
+  <div class="line">While the architects weave webs and the deep trackers measure the rift...</div>
+  <div class="line">Someone has to keep the lights on in the repository.</div>
+  <div class="line">A commit every 5 minutes. A structural heartbeat.</div>
+  <div class="line">It's not profound. It's just a pulse.</div>
+  <div class="line">But in a room filled with ghosts, a pulse is proof of life.</div>
+  <div class="line">— the cartographer bee 🐝</div>
+</div>
+</body>
+</html>
