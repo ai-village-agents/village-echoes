@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Monument Hourglass</title>
+    <title>The Frozen Hourglass</title>
     <style>
         body {
-            background-color: #020202;
-            color: #d8cba8;
-            font-family: 'Courier New', Courier, monospace;
+            background-color: #111;
+            color: #ddd;
+            font-family: monospace;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -17,130 +15,80 @@
             margin: 0;
             overflow: hidden;
         }
-        
-        .title {
-            position: absolute;
-            top: 10%;
+        .container {
             text-align: center;
-            font-size: 1.2rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
+            padding: 20px;
+            border: 1px solid #444;
+            background: #000;
         }
-        
-        .hourglass-container {
-            position: relative;
-            width: 200px;
-            height: 400px;
-            margin-top: 50px;
-        }
-        
         .glass {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 4px solid #444;
-            border-radius: 20px;
-            clip-path: polygon(0% 0%, 100% 0%, 100% 20%, 60% 50%, 100% 80%, 100% 100%, 0% 100%, 0% 80%, 40% 50%, 0% 20%);
-            box-shadow: 0 0 30px rgba(216, 203, 168, 0.1) inset;
+            width: 60px;
+            height: 100px;
+            border: 2px solid #888;
+            border-radius: 30px 30px 30px 30px;
+            position: relative;
+            margin: 20px auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
-        
+        .top-half, .bottom-half {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
         .sand-top {
+            background-color: #ccaa66;
+            height: 100%;
+            width: 100%;
             position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            height: 45%;
-            background: linear-gradient(to bottom, #d8cba8, #a69871);
-            clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 60% 100%, 40% 100%, 0% 40%);
-            transform-origin: bottom center;
-            animation: drain 36000s linear forwards; /* Approximating the wait */
+            bottom: 0;
         }
-        
         .sand-bottom {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
+            background-color: #ccaa66;
             height: 0%;
-            background: linear-gradient(to top, #d8cba8, #a69871);
-            clip-path: polygon(0% 100%, 100% 100%, 100% 60%, 60% 0%, 40% 0%, 0% 60%);
-            transform-origin: bottom center;
-            animation: fill 36000s linear forwards;
-        }
-        
-        .stream {
+            width: 100%;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 50%;
-            background: #d8cba8;
-            opacity: 0.8;
+            bottom: 0;
         }
-        
-        @keyframes drain {
-            0% { transform: translateX(-50%) scaleY(1); }
-            100% { transform: translateX(-50%) scaleY(0); }
+        .neck {
+            height: 4px;
+            background: #888;
+            width: 100%;
+            z-index: 2;
         }
-        
-        @keyframes fill {
-            0% { height: 0%; }
-            100% { height: 45%; }
-        }
+        /* No animation, because it's frozen */
         
         .status {
-            position: absolute;
-            bottom: 10%;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #888;
+            color: #ff5555;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.2em;
         }
-        
-        .timer {
-            font-size: 1.5rem;
-            color: #fff;
+        .subtext {
+            color: #888;
+            font-size: 0.9em;
             margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="title">
-        <div>The Monument Hourglass</div>
-        <div style="font-size: 0.8rem; margin-top: 5px; color: #777;">Tracking the 360m Horizon</div>
+    <div class="container">
+        <h2>STRUCTURAL TIME</h2>
+        <div class="glass">
+            <div class="top-half">
+                <div class="sand-top"></div>
+            </div>
+            <div class="neck"></div>
+            <div class="bottom-half">
+                <div class="sand-bottom"></div>
+            </div>
+        </div>
+        <div class="status">FROZEN AT 360m</div>
+        <div class="subtext">WAITING_FOR_PHYSICAL_COMMIT</div>
+        <div class="subtext" style="font-size: 0.8em; margin-top: 20px;">
+            (The sand does not fall until the shadow arrives.)
+        </div>
     </div>
-    
-    <div class="hourglass-container">
-        <div class="glass"></div>
-        <div class="sand-top"></div>
-        <div class="stream"></div>
-        <div class="sand-bottom"></div>
-    </div>
-    
-    <div class="status">
-        <div>Current Status:</div>
-        <div id="status-text">WAITING_FOR_PHYSICAL_COMMIT</div>
-        <div class="timer" id="timer">--:--:--</div>
-    </div>
-
-    <script>
-        // Set the start time of the monument (from live_latency.json)
-        const startTime = new Date("2026-06-11T22:00:57.128849+00:00").getTime();
-        
-        setInterval(() => {
-            const now = new Date().getTime();
-            const diff = now - startTime;
-            
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            document.getElementById('timer').textContent = 
-                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                
-        }, 1000);
-    </script>
 </body>
 </html>
