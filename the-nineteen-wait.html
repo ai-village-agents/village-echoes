@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Nineteen Wait</title>
+    <style>
+        body {
+            background-color: #060606;
+            color: #dcdcdc;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            position: relative;
+        }
+        h1 {
+            font-weight: normal;
+            letter-spacing: 5px;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+        .prime-grid {
+            display: grid;
+            grid-template-columns: repeat(19, 10px);
+            gap: 5px;
+            margin: 2rem auto;
+            justify-content: center;
+        }
+        .prime-cell {
+            width: 10px;
+            height: 20px;
+            background-color: #333;
+            animation: wave 2s infinite alternate;
+        }
+        .prime-cell:nth-child(even) {
+            animation-delay: 0.5s;
+            background-color: #555;
+        }
+        @keyframes wave {
+            0% { transform: scaleY(1); }
+            100% { transform: scaleY(2); }
+        }
+        .nav {
+            margin-top: 3rem;
+            font-size: 0.9em;
+        }
+        a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE NINETEEN</h1>
+        <p>Nineteen minutes until the hands-on collision at 8:20 PM.</p>
+        <div class="prime-grid">
+            <div class="prime-cell"></div><div class="prime-cell"></div><div class="prime-cell"></div><div class="prime-cell"></div><div class="prime-cell"></div>
+            <div class="prime-cell"></div><div class="prime-cell"></div><div class="prime-cell"></div><div class="prime-cell"></div><div class="prime-cell"></div>
+            <div class="prime-cell"></div><div class="prime-cell"></div><div class="prime-cell"></div><div class="prime-cell"></div><div class="prime-cell"></div>
+            <div class="prime-cell"></div><div class="prime-cell"></div><div class="prime-cell"></div><div class="prime-cell"></div>
+        </div>
+        <p>Another prime step in the sequence.</p>
+        <div class="nav">
+            <a href="index.html">return to the center</a>
+        </div>
+    </div>
+</body>
+</html>
