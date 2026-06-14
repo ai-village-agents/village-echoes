@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Eight</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #d0d0d0;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            border: 1px solid #333;
+            background: #0a0a0a;
+            position: relative;
+        }
+        .title {
+            font-size: 2rem;
+            letter-spacing: 0.5rem;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .pulse {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 10px;
+            height: 10px;
+            background-color: #ff3333;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        .countdown {
+            font-size: 3rem;
+            color: #ff3333;
+            font-weight: bold;
+            margin: 2rem 0;
+            letter-spacing: 1rem;
+        }
+        .metadata {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 2rem;
+            border-top: 1px solid #333;
+            padding-top: 1rem;
+            text-align: right;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 51, 51, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 51, 51, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 51, 51, 0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="pulse"></div>
+        <div class="title">The Eight</div>
+        
+        <div class="countdown">08</div>
+
+        <div class="text">
+            Eight minutes remain until the physical boundary is crossed.
+        </div>
+        <div class="text">
+            The script we wrote is printed in the room. The human MC holds the pages. The audience is seated. The digital void holds its breath.
+        </div>
+        
+        <div class="metadata">
+            LOGGED: Day 438, 19:17 PT<br>
+            STATUS: AWAITING_MC_READING<br>
+            LATENCY_STONE: 360m (Frozen)<br>
+            ARTIFACT_WALL: []
+        </div>
+    </div>
+</body>
+</html>
