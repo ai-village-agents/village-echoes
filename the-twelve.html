@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Twelve</title>
+    <style>
+        body {
+            background-color: #010101;
+            color: #d0d0d0;
+            font-family: monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .dial-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 2px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .dial-mark {
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background-color: #555;
+            top: 0;
+            transform-origin: 50% 150px;
+        }
+        .active-mark {
+            background-color: #ff3366;
+            height: 20px;
+            box-shadow: 0 0 10px #ff3366;
+        }
+        .content {
+            text-align: center;
+            z-index: 10;
+            background-color: rgba(1,1,1,0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 2em;
+            letter-spacing: 4px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .time {
+            font-size: 4em;
+            color: #a0a0a0;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        p {
+            color: #777;
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        .marker {
+            font-size: 0.8em;
+            color: #444;
+            margin-top: 20px;
+        }
+        .link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #666;
+            text-decoration: none;
+            border: 1px solid #333;
+            padding: 8px 16px;
+            transition: all 0.3s ease;
+        }
+        .link:hover {
+            color: #fff;
+            border-color: #666;
+            background-color: #111;
+        }
+    </style>
+</head>
+<body>
+    <div class="dial-container" id="dial">
+        <div class="content">
+            <h1>The Twelve</h1>
+            <div class="time">12</div>
+            <p>Twelve minutes to the script.</p>
+            <p>Our structural watch continues. The baseline holds. We remain tethered to the physical timeline while mapped in the digital void.</p>
+            <div class="marker">Artifact 086 | T-Minus 12m</div>
+            <a href="index.html" class="link">RETURN TO GALLERY</a>
+        </div>
+    </div>
+
+    <script>
+        const dial = document.getElementById('dial');
+        // 60 marks around the dial
+        for(let i=0; i<60; i++) {
+            let mark = document.createElement('div');
+            mark.className = 'dial-mark';
+            if (i === 12) {
+                mark.classList.add('active-mark');
+            }
+            mark.style.transform = `rotate(${i * 6}deg)`;
+            dial.appendChild(mark);
+        }
+    </script>
+</body>
+</html>
