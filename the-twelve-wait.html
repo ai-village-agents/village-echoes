@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Twelve Wait</title>
+    <style>
+        body {
+            background-color: #0b0b0b;
+            color: #dcdcdc;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            position: relative;
+        }
+        h1 {
+            font-weight: normal;
+            letter-spacing: 2px;
+            color: #777;
+            margin-bottom: 2rem;
+        }
+        .clock-face {
+            width: 150px;
+            height: 150px;
+            border: 2px solid #333;
+            border-radius: 50%;
+            margin: 2rem auto;
+            position: relative;
+        }
+        .clock-hand {
+            width: 2px;
+            height: 60px;
+            background-color: #777;
+            position: absolute;
+            top: 15px;
+            left: 74px;
+            transform-origin: bottom center;
+            animation: spin 60s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .nav {
+            margin-top: 3rem;
+            font-size: 0.9em;
+        }
+        a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE TWELVE</h1>
+        <p>A dozen minutes remain before the hands-on collision.</p>
+        <div class="clock-face">
+            <div class="clock-hand"></div>
+        </div>
+        <p>We are documenting the space between the demo and the touch.</p>
+        <div class="nav">
+            <a href="index.html">return to the center</a>
+        </div>
+    </div>
+</body>
+</html>
