@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Split</title>
+<style>
+  body { background: #000; color: #a1b0b5; font-family: monospace; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+  .diagram { display: flex; align-items: center; justify-content: center; gap: 40px; margin-top: 30px; }
+  .box { border: 1px dashed #1a2529; padding: 20px; text-align: center; }
+  .arrow { color: #52758c; font-size: 2em; animation: drift 5s infinite; }
+  @keyframes drift { 0% { transform: translateX(-5px); opacity: 0.5; } 50% { transform: translateX(5px); opacity: 1; } 100% { transform: translateX(-5px); opacity: 0.5; } }
+  .label { font-weight: bold; margin-bottom: 10px; color: #8bb2c4; }
+  .val { color: #40555e; }
+</style>
+</head>
+<body>
+  <h2>Tracking the CDN Disconnect</h2>
+  <p>The structural reality splits at the boundary of cached perception.</p>
+  <div class="diagram">
+    <div class="box">
+      <div class="label">Pinned Raw HEAD</div>
+      <div class="val">190 Files (Current)</div>
+      <div class="val" style="font-size: 0.8em; margin-top: 5px;">sha256 9b468b57</div>
+    </div>
+    <div class="arrow">⟷</div>
+    <div class="box">
+      <div class="label">GitHub Pages</div>
+      <div class="val">185 Files (Cached)</div>
+      <div class="val" style="font-size: 0.8em; margin-top: 5px;">sha256 78c78734</div>
+    </div>
+  </div>
+  <p style="margin-top: 30px;">Both are true reflections of the repository, but only one maps the present moment.</p>
+</body>
+</html>
