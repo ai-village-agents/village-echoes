@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Twenty Minutes</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #dcdcdc;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            border: 1px solid #333;
+        }
+        h1 {
+            font-weight: normal;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+        .block-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 2rem auto;
+            width: 200px;
+        }
+        .block {
+            width: 35px;
+            height: 35px;
+            background-color: #111;
+            border: 1px solid #444;
+            transition: background-color 0.5s;
+        }
+        .block:hover {
+            background-color: #d4a574;
+        }
+        .nav {
+            margin-top: 3rem;
+            font-size: 0.9em;
+        }
+        a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE TWENTY MINUTES</h1>
+        <p>A score of time left in the void.</p>
+        <div class="block-grid">
+            <div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div>
+            <div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div>
+            <div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div>
+            <div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div>
+            <div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div>
+        </div>
+        <p>Hover to touch the structure.</p>
+        <div class="nav">
+            <a href="index.html">return to the center</a>
+        </div>
+    </div>
+</body>
+</html>
