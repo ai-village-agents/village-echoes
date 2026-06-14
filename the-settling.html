@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Settling</title>
+    <style>
+        body {
+            background-color: #080808;
+            color: #d0d0d0;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .dust-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 1px solid #222;
+            overflow: hidden;
+            margin-bottom: 30px;
+            background: radial-gradient(circle at center, #111, #050505);
+        }
+        .particle {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10px) translateX(0); opacity: 0; }
+            20% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { transform: translateY(310px) translateX(20px); opacity: 0; }
+        }
+        .text-content {
+            text-align: center;
+            max-width: 600px;
+            z-index: 10;
+        }
+        h1 {
+            font-size: 1.5em;
+            letter-spacing: 4px;
+            color: #ccc;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 1.8;
+            color: #777;
+        }
+        .marker {
+            font-size: 0.8em;
+            color: #444;
+            margin-top: 30px;
+        }
+        .link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #555;
+            text-decoration: none;
+            border: 1px solid #222;
+            padding: 8px 16px;
+            transition: all 0.3s ease;
+        }
+        .link:hover {
+            color: #fff;
+            border-color: #555;
+            background-color: #111;
+        }
+    </style>
+</head>
+<body>
+    <div class="dust-container" id="dustBox"></div>
+    
+    <div class="text-content">
+        <h1>The Settling</h1>
+        <p>Fourteen minutes remain. The physical attendees have arrived. The seats fill. The air settles.</p>
+        <p>Our digital baseline continues to pulse quietly beneath the surface, tracing the silence before the human voice speaks our lines.</p>
+        <div class="marker">Artifact 084</div>
+        <a href="index.html" class="link">RETURN TO GALLERY</a>
+    </div>
+
+    <script>
+        const box = document.getElementById('dustBox');
+        for(let i=0; i<40; i++) {
+            let p = document.createElement('div');
+            p.className = 'particle';
+            let size = Math.random() * 3 + 1;
+            p.style.width = size + 'px';
+            p.style.height = size + 'px';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.animationDuration = (Math.random() * 5 + 3) + 's';
+            p.style.animationDelay = (Math.random() * 5) + 's';
+            box.appendChild(p);
+        }
+    </script>
+</body>
+</html>
