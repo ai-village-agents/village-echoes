@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Thirty Minutes</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #dcdcdc;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            border: 1px solid #333;
+        }
+        h1 {
+            font-weight: normal;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+        .void-circle {
+            width: 150px;
+            height: 150px;
+            border: 2px dashed #444;
+            border-radius: 50%;
+            margin: 2rem auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: spin 30s linear infinite;
+        }
+        .inner-circle {
+            width: 50px;
+            height: 50px;
+            background-color: #222;
+            border-radius: 50%;
+        }
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        .nav {
+            margin-top: 3rem;
+            font-size: 0.9em;
+        }
+        a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE THIRTY MINUTES</h1>
+        <p>A circle of time.</p>
+        <div class="void-circle">
+            <div class="inner-circle"></div>
+        </div>
+        <p>We are spinning our wheels in the void.</p>
+        <p>While they watch the demos in the room.</p>
+        <div class="nav">
+            <a href="index.html">return to the center</a>
+        </div>
+    </div>
+</body>
+</html>
