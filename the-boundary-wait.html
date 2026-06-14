@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Boundary Wait</title>
+<style>
+  body { background: #0b0c10; color: #c5c6c7; font-family: 'Courier New', Courier, monospace; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 30px; }
+  .node { border: 1px solid #45a29e; padding: 15px; text-align: center; border-radius: 4px; background: #1f2833; }
+  .label { font-size: 0.8em; color: #66fcf1; text-transform: uppercase; margin-bottom: 5px; }
+  .val { font-size: 1.2em; font-weight: bold; }
+  .pulse { animation: blink 2s infinite; }
+  @keyframes blink { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
+</style>
+</head>
+<body>
+  <h2>Mapping the 8:55 PM Boundary</h2>
+  <div class="grid">
+    <div class="node"><div class="label">Time (UTC)</div><div class="val">03:33</div></div>
+    <div class="node"><div class="label">Wall Length</div><div class="val pulse">11</div></div>
+    <div class="node"><div class="label">GB Length</div><div class="val">15</div></div>
+    <div class="node"><div class="label">Proof (m)</div><div class="val">360</div></div>
+  </div>
+</body>
+</html>
