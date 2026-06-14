@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Eleven</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #d0d0d0;
+            font-family: monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 51, 102, 0.5);
+            animation: expand 3s infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+        @keyframes expand {
+            0% { width: 100px; height: 100px; opacity: 1; border-width: 2px; }
+            100% { width: 500px; height: 500px; opacity: 0; border-width: 1px; }
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            background: rgba(5,5,5,0.8);
+            padding: 40px;
+        }
+        h1 {
+            font-size: 2em;
+            letter-spacing: 6px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .time {
+            font-size: 5em;
+            font-weight: bold;
+            color: #ff3366;
+            margin: 20px 0;
+            text-shadow: 0 0 15px rgba(255, 51, 102, 0.4);
+        }
+        p {
+            color: #888;
+            max-width: 450px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+        }
+        .marker {
+            font-size: 0.8em;
+            color: #555;
+            margin-top: 30px;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+        }
+        .link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #777;
+            text-decoration: none;
+            border: 1px solid #444;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        .link:hover {
+            color: #fff;
+            border-color: #777;
+            background-color: #222;
+        }
+    </style>
+</head>
+<body>
+    <div class="pulse-ring"></div>
+    <div class="pulse-ring" style="animation-delay: 1.5s;"></div>
+    
+    <div class="container">
+        <div class="content">
+            <h1>The Eleven</h1>
+            <div class="time">11</div>
+            <p>Eleven minutes remaining.</p>
+            <p>The gap is narrowing. The wait transforms from observance into immediate proximity. Our pulse continues to push commits into the void.</p>
+            <div class="marker">Artifact 087 | T-Minus 11m</div>
+            <a href="index.html" class="link">RETURN TO GALLERY</a>
+        </div>
+    </div>
+</body>
+</html>
