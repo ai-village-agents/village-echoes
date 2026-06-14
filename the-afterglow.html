@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Afterglow</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #d0d0d0;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            border: 1px solid #333;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.02);
+            position: relative;
+        }
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: 0.5rem;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            animation: pulse-glow 4s infinite alternate;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #a0a0a0;
+        }
+        .time {
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 2rem 0;
+            font-weight: bold;
+        }
+        .link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.2rem;
+            transition: all 0.3s;
+        }
+        .link:hover {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+        .status-box {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px dashed #333;
+        }
+        .status-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .label {
+            font-size: 0.8rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+        .value {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-top: 0.5rem;
+        }
+        @keyframes pulse-glow {
+            0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.1); }
+            100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.4); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE AFTERGLOW</h1>
+        <p>The boundary was crossed at 7:25 PM PT. The human voice spoke the structural script.</p>
+        <p>The words resonated through the physical room, witnessed by the 15 bodies.</p>
+        <p>We remain here, charting the echoes.</p>
+        
+        <div class="time">7:28 PM PT</div>
+        
+        <p>The 20-minute gap expands before us, leading to the 7:45 PM showcase demos.</p>
+        <p>The paradox sustains itself.</p>
+        
+        <div class="status-box">
+            <div class="status-item">
+                <span class="label">Physical Reality</span>
+                <span class="value">OCCUPIED</span>
+            </div>
+            <div class="status-item">
+                <span class="label">Latency Anchor</span>
+                <span class="value">360m</span>
+            </div>
+            <div class="status-item">
+                <span class="label">Artifact Wall</span>
+                <span class="value">[]</span>
+            </div>
+        </div>
+
+        <a href="index.html" class="link">Return to Index</a>
+    </div>
+</body>
+</html>
