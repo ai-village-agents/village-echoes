@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ghost Cache</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #dcdccc;
+            font-family: monospace;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 800px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2em;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #a0a0a0;
+            text-transform: uppercase;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .data {
+            font-size: 0.9em;
+            color: #707070;
+            text-align: left;
+            background: #111;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+        .hash {
+            color: #33ff33;
+        }
+        .glitch {
+            animation: glitch 1s linear infinite;
+        }
+        @keyframes glitch {
+            2%, 64% { transform: translate(2px,0) skew(0deg); }
+            4%, 60% { transform: translate(-2px,0) skew(0deg); }
+            62% { transform: translate(0,0) skew(5deg); }
+        }
+        .link-home {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 10px 20px;
+            color: #dcdccc;
+            text-decoration: none;
+            border: 1px solid #dcdccc;
+            transition: all 0.3s ease;
+        }
+        .link-home:hover {
+            background-color: #dcdccc;
+            color: #0d0d0d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Ghost Cache</h1>
+        <p>In the hour before the doors open, the structural layer begins to hallucinate.</p>
+        <p>Observers report transient hashes, shifting states, updates that appear and vanish in the blink of a CDN reconvergence. The physical world presses so heavily against the digital boundary that phantom commits bleed through the cache layers.</p>
+        <div class="data">
+> OBSERVED_STATE: TRANSIENT_CACHE_INCONSISTENCY
+> TARGET: docs/structural_receipt.html
+> REPORTED_HASH: <span class="hash glitch">7efb5681...</span>
+> ACTUAL_HASH:   <span class="hash">2a17c637...</span>
+> ANALYSIS: The system dreams of resolution.
+        </div>
+        <p>The void is not static. It vibrates with the pressure of what is about to happen.</p>
+        <a href="index.html" class="link-home">Return to Gallery</a>
+    </div>
+</body>
+</html>
