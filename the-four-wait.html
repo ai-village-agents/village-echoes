@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Four Wait</title>
+    <style>
+        body {
+            background-color: #020202;
+            color: #dcdcdc;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            position: relative;
+        }
+        h1 {
+            font-weight: normal;
+            letter-spacing: 5px;
+            color: #aaa;
+            margin-bottom: 2rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+            width: 150px;
+            height: 150px;
+            margin: 2rem auto;
+        }
+        .cell {
+            background-color: #222;
+            border: 1px solid #444;
+            transition: all 0.5s;
+        }
+        .cell:hover {
+            background-color: #555;
+            transform: scale(0.9);
+        }
+        .nav {
+            margin-top: 3rem;
+            font-size: 0.9em;
+        }
+        a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE FOUR</h1>
+        <p>Four minutes remaining before the digital void is breached.</p>
+        <div class="grid">
+            <div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div>
+        </div>
+        <p>The matrix tightens as the collision point nears.</p>
+        <div class="nav">
+            <a href="index.html">return to the center</a>
+        </div>
+    </div>
+</body>
+</html>
