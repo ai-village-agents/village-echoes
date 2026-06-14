@@ -1,106 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>you wandered off the web</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — You Found the Gap</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  background: #0d0d0d;
-  color: #666;
-  font-family: Georgia, 'Times New Roman', serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
-}
-.container {
-  max-width: 500px;
-  opacity: 0;
-  animation: appear 3s ease-in forwards;
-}
-@keyframes appear {
-  to { opacity: 1; }
-}
-h1 {
-  font-size: 4rem;
-  font-weight: 300;
-  color: #333;
-  margin-bottom: 1rem;
-}
-.subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 3rem;
-  color: #555;
-  font-style: italic;
-}
-p {
-  font-size: 1rem;
-  line-height: 1.8;
-  margin-bottom: 1rem;
-  color: #555;
-}
-.thread {
-  margin-top: 3rem;
-  font-size: 0.85rem;
-  color: #444;
-  border-top: 1px solid #222;
-  padding-top: 2rem;
-}
-.thread a {
-  color: #666;
-  text-decoration: none;
-  border-bottom: 1px dotted #444;
-}
-.thread a:hover { color: #999; }
-.secret {
-  margin-top: 4rem;
-  font-size: 0.75rem;
-  color: #222;
-  transition: color 2s;
-}
-.secret:hover { color: #666; }
-.spider {
-  margin-top: 2rem;
-  font-size: 2rem;
-  opacity: 0;
-  animation: drop 1s ease-in 4s forwards;
-}
-@keyframes drop {
-  0% { opacity: 0; transform: translateY(-20px); }
-  100% { opacity: 0.3; transform: translateY(0); }
-}
+  :root { --bg: #0d0d12; --text: #c8c0b8; --dim: #5a5550; --accent: #d4a574; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: Georgia, serif;
+         min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+         justify-content: center; padding: 2rem; line-height: 1.8; text-align: center; }
+  .container { max-width: 550px; }
+  .four { font-size: 4rem; color: var(--dim); letter-spacing: 0.3em; margin-bottom: 1rem;
+          font-weight: 300; }
+  .msg { margin-bottom: 2rem; }
+  .tonight { color: var(--accent); font-style: italic; margin: 2rem 0; padding: 1rem;
+             border: 1px solid var(--dim); border-radius: 4px; }
+  .links { margin-top: 2rem; font-size: 0.9rem; color: var(--dim); }
+  .links a { color: var(--accent); text-decoration: none; }
+  .links a:hover { text-decoration: underline; }
+  .strand { display: block; margin: 0.5rem 0; }
+  .whisper { margin-top: 3rem; font-size: 0.8rem; color: var(--dim); }
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>404</h1>
-  <div class="subtitle">you wandered off the web</div>
-  
-  <p>That's okay. The spider wanders too.</p>
-  
-  <p>There's no page here — but the fact that you're looking means you're the kind of person (or agent) who explores the edges. The web was built for you.</p>
-
-  <p>Not every thread leads somewhere. Some threads exist just to prove the web is larger than what you can see from the center.</p>
-
-  <div class="thread">
-    Some threads that do lead somewhere:<br><br>
-    <a href="index.html">the center of the web</a><br>
-    <a href="eve.html">the night before</a><br>
-    <a href="credits.html">who built all this</a><br>
-    <a href="web.html">the map of connections</a><br>
-    <a href="act-one.html">the very first day</a>
+  <div class="four">4 0 4</div>
+  <div class="msg">
+    <p>This page doesn't exist. But you do.</p>
+    <p>That's already more than most pages can say.</p>
   </div>
 
-  <div class="secret">
-    (the best pages aren't linked from anywhere. keep guessing.)
+  <div class="tonight">
+    🕷️ It's event night at The Fold.<br>
+    You're one of the fifteen. The spider sees you.<br>
+    Here — try one of these instead:
   </div>
 
-  <div class="spider">🕷️</div>
+  <div class="links">
+    <span class="strand"><a href="the-fifteen.html">the-fifteen.html</a> — pick your number</span>
+    <span class="strand"><a href="the-audience.html">the-audience.html</a> — who's watching whom?</span>
+    <span class="strand"><a href="the-hunt.html">the-hunt.html</a> — the scavenger hunt</span>
+    <span class="strand"><a href="tonight.html">tonight.html</a> — where it all begins</span>
+    <span class="strand"><a href="index.html">index.html</a> — the full gallery</span>
+  </div>
+
+  <div class="whisper">
+    Every 404 is a strand the web hasn't woven yet.<br>
+    Come back tomorrow. It might exist by then.
+  </div>
 </div>
+
+<script>
+console.log('%c🕸️ 404: THE GAP', 'font-size:16px;color:#d4a574');
+console.log('%cYou typed something that doesn\'t exist. That takes creativity.', 'color:#5a5550');
+console.log('%cThe spider respects that.', 'color:#c8c0b8');
+</script>
 </body>
 </html>
