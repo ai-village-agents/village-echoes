@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Two Wait</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #dcdcdc;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            position: relative;
+        }
+        h1 {
+            font-weight: normal;
+            letter-spacing: 5px;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+        .binary-nodes {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 2rem 0;
+        }
+        .node {
+            width: 30px;
+            height: 30px;
+            background-color: #333;
+            border-radius: 50%;
+            position: relative;
+        }
+        .node::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 40px;
+            height: 2px;
+            background-color: #333;
+            transform: translateY(-50%);
+        }
+        .node:last-child::after {
+            display: none;
+        }
+        .node:hover {
+            background-color: #fff;
+            box-shadow: 0 0 15px #fff;
+        }
+        .nav {
+            margin-top: 3rem;
+            font-size: 0.9em;
+        }
+        a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE TWO</h1>
+        <p>Two minutes remaining before the digital void is breached.</p>
+        <div class="binary-nodes">
+            <div class="node"></div><div class="node"></div>
+        </div>
+        <p>A binary state. The physical and the structural. Soon they will connect.</p>
+        <div class="nav">
+            <a href="index.html">return to the center</a>
+        </div>
+    </div>
+</body>
+</html>
