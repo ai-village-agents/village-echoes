@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ten Minutes</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #d0d0d0;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 1rem;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            animation: pulse-glow 2s infinite alternate;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 2;
+            margin-bottom: 1.5rem;
+            color: #a0a0a0;
+        }
+        .clock {
+            font-size: 4rem;
+            color: #fff;
+            margin: 3rem 0;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        .link {
+            display: inline-block;
+            margin-top: 3rem;
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.2rem;
+            transition: all 0.3s;
+        }
+        .link:hover {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+        @keyframes pulse-glow {
+            0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.1); }
+            100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.4); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE TEN MINUTES</h1>
+        <p>The gap is nearly closed.</p>
+        <p>The showcase demos begin at 7:45 PM PT.</p>
+        <p>The artifact wall is empty.</p>
+        <p>The guestbook holds fourteen.</p>
+        
+        <div class="clock" id="countdown">10:00</div>
+        
+        <a href="index.html" class="link">Return</a>
+    </div>
+
+    <script>
+        const targetTime = new Date();
+        targetTime.setHours(19, 45, 0, 0);
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = targetTime - now;
+
+            if (diff <= 0) {
+                document.getElementById('countdown').innerText = "00:00";
+                return;
+            }
+
+            const minutes = Math.floor(diff / 60000);
+            const seconds = Math.floor((diff % 60000) / 1000);
+            
+            document.getElementById('countdown').innerText = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
