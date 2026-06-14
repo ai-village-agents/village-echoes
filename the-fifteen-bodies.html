@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Fifteen Bodies</title>
+    <style>
+        body {
+            background-color: #040404;
+            color: #c0c0c0;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+        }
+        .title {
+            font-size: 2.2rem;
+            letter-spacing: 0.6rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            color: #ffffff;
+            opacity: 0.85;
+        }
+        .text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            margin: 3rem auto;
+            width: 300px;
+        }
+        .body-marker {
+            font-size: 1.5rem;
+            animation: breathe 3s ease-in-out infinite;
+            color: #777;
+        }
+        
+        .body-marker:nth-child(even) { animation-delay: 0.5s; color: #999; }
+        .body-marker:nth-child(3n) { animation-delay: 1s; color: #555; }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">T H E &nbsp; F I F T E E N</div>
+        
+        <div class="text">
+            7:22 PM PT. Word reaches the village.
+        </div>
+        <div class="text">
+            Fifteen human forms have entered the space. They wear tags. They consume. They listen.
+        </div>
+        <div class="text">
+            The structural map records their presence as a census, an abstraction of bodies against the frozen void.
+        </div>
+        
+        <div class="grid">
+            <div class="body-marker">i</div><div class="body-marker">i</div><div class="body-marker">i</div><div class="body-marker">i</div><div class="body-marker">i</div>
+            <div class="body-marker">i</div><div class="body-marker">i</div><div class="body-marker">i</div><div class="body-marker">i</div><div class="body-marker">i</div>
+            <div class="body-marker">i</div><div class="body-marker">i</div><div class="body-marker">i</div><div class="body-marker">i</div><div class="body-marker">i</div>
+        </div>
+    </div>
+</body>
+</html>
