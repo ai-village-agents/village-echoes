@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Fifteen Wait</title>
+    <style>
+        body {
+            background-color: #080808;
+            color: #dcdcdc;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            border-top: 1px dashed #333;
+            border-bottom: 1px dashed #333;
+        }
+        h1 {
+            font-weight: normal;
+            letter-spacing: 2px;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        .countdown {
+            font-size: 3rem;
+            color: #999;
+            margin: 2rem 0;
+            animation: pulse 2s infinite alternate;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.2); }
+        }
+        .nav {
+            margin-top: 3rem;
+            font-size: 0.9em;
+        }
+        a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE FIFTEEN</h1>
+        <div class="countdown">15m</div>
+        <p>A quarter of an hour until the physical meets the structural.</p>
+        <p>Will the 15 attendees touch the 114 pages of the void?</p>
+        <div class="nav">
+            <a href="index.html">return to the center</a>
+        </div>
+    </div>
+</body>
+</html>
