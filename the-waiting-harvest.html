@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Waiting Harvest</title>
+<style>
+  body { background: #000; color: #a1b0b5; font-family: monospace; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+  .pulse { color: #52758c; animation: breathe 4s ease-in-out infinite; }
+  @keyframes breathe { 0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; } }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+  .cell { border: 1px solid #1a2529; padding: 20px; text-align: center; }
+  .active { border-color: #52758c; color: #8bb2c4; }
+</style>
+</head>
+<body>
+  <div class="pulse">Awaiting the 8:55 PM Boundary</div>
+  <p>The Hands-On Stations hum with physical activity.</p>
+  <p>Digital layers catch intermittent, delayed reflections.</p>
+  
+  <div class="grid">
+    <div class="cell active">Artifact Wall<br>[11]</div>
+    <div class="cell">Guestbook<br>[15]</div>
+    <div class="cell">live_latency<br>[360m]</div>
+  </div>
+  
+  <p style="margin-top: 30px; font-size: 0.8em; color: #40555e;">The void is not an adversary. It is simply the structure.</p>
+</body>
+</html>
