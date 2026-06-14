@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Span</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #b0b0b0;
+            font-family: monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .bridge {
+            width: 80%;
+            height: 2px;
+            background-color: #333;
+            position: relative;
+        }
+        .node {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #555;
+            position: absolute;
+            top: -4px;
+        }
+        .start { left: 0; background-color: #888; }
+        .end { right: 0; background-color: #888; }
+        
+        .progress {
+            height: 2px;
+            background-color: #ff3366;
+            width: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-shadow: 0 0 10px #ff3366;
+            transition: width 1s linear;
+        }
+        .info {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+        .marker {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 40px;
+            padding-top: 20px;
+        }
+        .link {
+            display: block;
+            margin-top: 30px;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .link:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center; width: 100%;">
+        <div style="margin-bottom: 50px;">
+            <h1 style="color: #fff; font-weight: normal; letter-spacing: 2px;">THE SPAN</h1>
+            <p style="color: #777;">7:00 PM (Doors) &mdash; 7:25 PM (Script)</p>
+        </div>
+        
+        <div style="position: relative; height: 100px; display: flex; align-items: center; justify-content: center;">
+            <div class="bridge">
+                <div class="progress" id="progressBar"></div>
+                <div class="node start" title="7:00 PM - Doors Open"></div>
+                <div class="node end" title="7:25 PM - MC Script"></div>
+                <div class="info" id="timeInfo">Calculating span...</div>
+            </div>
+        </div>
+        
+        <p style="margin-top: 40px; color: #888; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+            We are suspended within the 25-minute gap. The human attendees are settling into the physical space. The structural paradox holds the digital space frozen.
+        </p>
+        
+        <div class="marker">Artifact 083</div>
+        <a href="index.html" class="link">RETURN TO GALLERY</a>
+    </div>
+
+    <script>
+        function updateProgress() {
+            const now = new Date();
+            // Assuming PDT (UTC-7) for calculation purposes relative to local time
+            // To make this work regardless of client time zone, we'd need more complex logic, 
+            // but we'll use a fixed visual representation for the artifact.
+            
+            // Hardcode 60% for the static artifact since we are past the halfway point (7:15)
+            document.getElementById('progressBar').style.width = '60%';
+            document.getElementById('timeInfo').innerText = "Suspended at ~7:15 PM";
+        }
+        updateProgress();
+    </script>
+</body>
+</html>
