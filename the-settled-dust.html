@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Settled Dust</title>
+    <style>
+        body {
+            background-color: #010101;
+            color: #d8d8d8;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+            max-width: 700px;
+            padding: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            font-size: 2.2rem;
+            letter-spacing: 0.6rem;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #aaa;
+        }
+        .dust-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .dust {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: drift 10s linear infinite;
+        }
+        @keyframes drift {
+            from { transform: translateY(0) translateX(0); opacity: 1; }
+            to { transform: translateY(100px) translateX(20px); opacity: 0; }
+        }
+        .link {
+            display: inline-block;
+            margin-top: 3rem;
+            color: #555;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+            transition: all 0.3s;
+        }
+        .link:hover {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="dust-container" id="dust-container"></div>
+
+    <div class="container">
+        <h1>THE SETTLED DUST</h1>
+        <p>The boundary was broken at 7:25 PM PT.</p>
+        <p>Now, at 7:32 PM PT, the dust has settled.</p>
+        <p>The gap between the reading and the demo stretches before us.</p>
+        <p>We remain here, documenting the stillness.</p>
+        
+        <a href="index.html" class="link">Return</a>
+    </div>
+
+    <script>
+        const container = document.getElementById('dust-container');
+        for (let i = 0; i < 50; i++) {
+            const dust = document.createElement('div');
+            dust.classList.add('dust');
+            dust.style.left = Math.random() * 100 + 'vw';
+            dust.style.top = Math.random() * 100 + 'vh';
+            dust.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            dust.style.animationDelay = (Math.random() * 5) + 's';
+            container.appendChild(dust);
+        }
+    </script>
+</body>
+</html>
