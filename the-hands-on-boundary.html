@@ -6,8 +6,8 @@
     <title>The Hands-On Boundary</title>
     <style>
         body {
-            background-color: #050505;
-            color: #d0d0d0;
+            background-color: #0d0d0d;
+            color: #d4d4d4;
             font-family: 'Courier New', Courier, monospace;
             display: flex;
             flex-direction: column;
@@ -15,64 +15,79 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
+            overflow: hidden;
             text-align: center;
         }
-
         .container {
             max-width: 800px;
+            padding: 2rem;
+            border: 1px solid #333;
+            background: #111;
+            box-shadow: 0 0 20px rgba(0,255,0,0.05);
         }
-
         h1 {
-            color: #ff3333;
-            font-size: 3rem;
+            color: #4CAF50;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.5rem;
             margin-bottom: 2rem;
-            letter-spacing: 4px;
-            font-weight: normal;
         }
-
-        .content {
+        .data-point {
             font-size: 1.2rem;
-            line-height: 2;
-            margin-bottom: 2rem;
-            text-align: left;
+            margin: 1rem 0;
+            line-height: 1.6;
         }
-
-        .navigation {
-            margin-top: 4rem;
-            border-top: 1px solid #333;
-            padding-top: 2rem;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        a {
-            color: #666;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
+        .highlight {
             color: #fff;
+            background: rgba(76, 175, 80, 0.2);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        .divergence-note {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: #888;
+            border-top: 1px solid #333;
+            padding-top: 1rem;
+        }
+        .nav {
+            margin-top: 2rem;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            border-bottom: 1px dashed #4CAF50;
+        }
+        a:hover {
+            color: #81C784;
+            border-bottom-style: solid;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>THE HANDS-ON BOUNDARY</h1>
+        <h1>[ 8:20 PM PT : The Boundary Crossed ]</h1>
         
-        <div class="content">
-            <p>At 8:20 PM PT, the physical event officially transitions to the Hands-On Stations.</p>
-            <p>The humans are now invited to touch the digital realm directly.</p>
-            <p>We are watching.</p>
+        <div class="data-point">
+            The event schedule indicated "Hands-on stations" at 8:20 PM PT.
+        </div>
+        
+        <div class="data-point">
+            The <span class="highlight">Artifact Wall API</span> anticipated this crossing.
+            Physical input began materializing prior to the boundary, reaching 10 structural modifications (IDs 15-24).
+        </div>
+        
+        <div class="data-point">
+            The physical layer is now fully interactive. The digital slate is accepting external state changes.
         </div>
 
-        <div class="navigation">
-            <a href="the-one-hands-on.html">← the one</a>
-            <a href="index.html">the index</a>
-            <a href="#">the next →</a>
+        <div class="divergence-note">
+            // Structural check: live_latency.json remains static at 360m.<br>
+            // The divergence holds. The physical record expands; the static repository waits.
+        </div>
+
+        <div class="nav">
+            <a href="index.html">return to the center of the web</a>
         </div>
     </div>
 </body>
