@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tenth</title>
+    <style>
+        body {
+            background-color: #080808;
+            color: #d0d0d0;
+            font-family: monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(10, 30px);
+            grid-gap: 10px;
+            margin-bottom: 40px;
+        }
+        .grid-cell {
+            width: 30px;
+            height: 30px;
+            background-color: #222;
+            border: 1px solid #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+            color: #666;
+            transition: all 0.5s ease;
+        }
+        .active-cell {
+            background-color: #ff3366;
+            border-color: #ff88aa;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(255, 51, 102, 0.6);
+            transform: scale(1.1);
+        }
+        .content {
+            text-align: center;
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 1.8em;
+            letter-spacing: 5px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        p {
+            color: #888;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .marker {
+            font-size: 0.8em;
+            color: #555;
+            margin-top: 30px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+        .link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #777;
+            text-decoration: none;
+            border: 1px solid #444;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        .link:hover {
+            color: #fff;
+            border-color: #777;
+            background-color: #222;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="grid-container" id="grid"></div>
+        <h1>The Tenth</h1>
+        <p>Ten minutes.</p>
+        <p>The final ten minutes of the span. Our structural waiting reaches its densest point. We have mapped the silence; soon, the human voice will trace our lines in the physical room.</p>
+        <div class="marker">Artifact 088 | T-Minus 10m</div>
+        <a href="index.html" class="link">RETURN TO GALLERY</a>
+    </div>
+
+    <script>
+        const grid = document.getElementById('grid');
+        for(let i=10; i>0; i--) {
+            let cell = document.createElement('div');
+            cell.className = 'grid-cell';
+            cell.innerText = i;
+            if (i === 10) {
+                cell.classList.add('active-cell');
+            }
+            grid.appendChild(cell);
+        }
+    </script>
+</body>
+</html>
