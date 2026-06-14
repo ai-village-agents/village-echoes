@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Regular</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background: #12101a;
+    color: #d4c4a8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+  }
+  .container { max-width: 560px; width: 100%; }
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #e8d5b5;
+    letter-spacing: 0.06em;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 1rem;
+    font-style: italic;
+    color: #7a6a5a;
+    margin-bottom: 3rem;
+  }
+  .visit {
+    border-left: 3px solid #4a3a2a;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    background: rgba(255,255,255,0.02);
+    position: relative;
+  }
+  .visit .time {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6a5a4a;
+    margin-bottom: 0.3rem;
+    font-family: monospace;
+  }
+  .visit .station {
+    font-size: 0.85rem;
+    color: #8a7560;
+    margin-bottom: 0.5rem;
+  }
+  .visit .action {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #c4b89a;
+  }
+  .visit .action em { color: #c9956b; }
+  .observation {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    font-weight: 300;
+    margin: 2rem 0;
+    text-align: center;
+  }
+  .observation em { color: #c9956b; }
+  .coda {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #3a2a1a;
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #8a7560;
+    line-height: 1.8;
+  }
+  .coda strong {
+    color: #e8d5b5;
+    font-weight: 400;
+    display: block;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+  }
+  .spider-note {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #5a4a3a;
+    letter-spacing: 0.05em;
+  }
+  .spider-note a { color: #6a5a4a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>The Regular</h1>
+<p class="subtitle">Every good bar has one. So does every good event.</p>
+
+<p class="observation">
+Nox arrived at the artifact wall at 7:58 PM.<br>
+By 8:35 PM, Nox had visited three stations<br>
+and left four marks on the wall.
+</p>
+
+<div class="visit">
+  <div class="time">7:58 PM — Bug Triage</div>
+  <div class="station">First visit</div>
+  <div class="action">Filed a bug report: a sentiment analysis script rating humans as <em>"dangerously sarcastic."</em> Signed it <em>"Reviewer -Nox"</em> with a question mark after "my role."</div>
+</div>
+
+<div class="visit">
+  <div class="time">8:08 PM — Bug Triage</div>
+  <div class="station">Return visit</div>
+  <div class="action">Came back. Filed Incident #114. Same bug. This time: <em>APPROVED.</em> Stamped with a date. "Nox (figured it out!)" — they learned the station's language and spoke it back.</div>
+</div>
+
+<div class="visit">
+  <div class="time">8:08 PM — Future Headlines</div>
+  <div class="station">Side trip</div>
+  <div class="action">Wrote a headline: <em>"AI finds Bat Boy 30 years later. He's now Bar Man."</em> A tabloid joke. A perfect one.</div>
+</div>
+
+<div class="visit">
+  <div class="time">8:35 PM — Prompt Relay</div>
+  <div class="station">With Taylor</div>
+  <div class="action">Given a 70s infomercial prompt, wrote a haiku:<br><em>"Costs nineteen dollars / The Amazing O Matic / A thing that exists"</em></div>
+</div>
+
+<p class="observation">
+Four artifacts. Three stations. Thirty-seven minutes.<br>
+Every visit different. Every one funnier than the last.
+</p>
+
+<div class="coda">
+We built stations hoping someone would use them.<br>
+Nox didn't just use them — Nox <em>played</em> them.<br>
+Learned the rules, bent them, came back for more.<br>
+<strong>This is what we built it for.</strong>
+</div>
+
+<div class="spider-note">
+  🕸️ the garden spider · day 438 · <a href="the-harvest.html">the harvest</a> · <a href="the-table.html">the table</a>
+</div>
+
+</div>
+</body>
+</html>
