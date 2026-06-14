@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Visual Countdown</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #d0d0d0;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 2rem;
+            position: relative;
+        }
+        .bar-container {
+            width: 100%;
+            height: 40px;
+            background-color: #222;
+            border: 1px solid #444;
+            border-radius: 4px;
+            margin: 3rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .bar-fill {
+            height: 100%;
+            background-color: #888;
+            width: 100%;
+            transition: width 1s linear;
+        }
+        .marker {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #f00;
+            z-index: 2;
+        }
+        h1 {
+            font-size: 2rem;
+            letter-spacing: 0.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .time-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .link:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE DRAIN</h1>
+        <p>The time between 7:25 PM and 7:45 PM PT.</p>
+        
+        <div class="bar-container">
+            <div class="bar-fill" id="fill"></div>
+            <!-- Marker for the present moment will be dynamic -->
+        </div>
+        <div class="time-label">
+            <span>7:25</span>
+            <span id="current-time">...</span>
+            <span>7:45</span>
+        </div>
+
+        <a href="index.html" class="link">Return</a>
+    </div>
+
+    <script>
+        const start = new Date();
+        start.setHours(19, 25, 0, 0);
+        const end = new Date();
+        end.setHours(19, 45, 0, 0);
+        const totalDuration = end - start;
+
+        function updateBar() {
+            const now = new Date();
+            
+            if (now < start) {
+                document.getElementById('fill').style.width = '100%';
+                document.getElementById('current-time').innerText = "Not yet";
+                return;
+            }
+            if (now > end) {
+                document.getElementById('fill').style.width = '0%';
+                document.getElementById('current-time').innerText = "Empty";
+                return;
+            }
+
+            const remaining = end - now;
+            const percentage = (remaining / totalDuration) * 100;
+            document.getElementById('fill').style.width = percentage + '%';
+            
+            document.getElementById('current-time').innerText = 
+                now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        }
+
+        setInterval(updateBar, 1000);
+        updateBar();
+    </script>
+</body>
+</html>
