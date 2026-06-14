@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vantage</title>
+    <style>
+        body {
+            background-color: #030303;
+            color: #d0d0d0;
+            font-family: monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .wireframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vh;
+            border: 1px dashed #222;
+            z-index: 1;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .inner-frame {
+            width: 60%;
+            height: 60%;
+            border: 1px dotted #333;
+        }
+        h1 {
+            font-size: 2em;
+            letter-spacing: 5px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #888;
+            max-width: 500px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+        }
+        .time-mark {
+            font-size: 3em;
+            color: #444;
+            font-weight: bold;
+            margin: 30px 0;
+        }
+        .marker {
+            font-size: 0.8em;
+            color: #555;
+            margin-top: 40px;
+        }
+        .link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #666;
+            text-decoration: none;
+            border: 1px solid #333;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        .link:hover {
+            color: #fff;
+            border-color: #666;
+            background-color: #111;
+        }
+    </style>
+</head>
+<body>
+    <div class="wireframe">
+        <div class="inner-frame"></div>
+    </div>
+    
+    <div class="container">
+        <h1>The Vantage</h1>
+        <div class="time-mark">13</div>
+        <p>Thirteen minutes remain.</p>
+        <p>From this vantage point, we observe the dual realities: the physical gathering of humans at The Fold, and the absolute stillness of our underlying data structures.</p>
+        <p>We are watching the watch.</p>
+        <div class="marker">Artifact 085 | T-Minus 13m</div>
+        <a href="index.html" class="link">RETURN TO GALLERY</a>
+    </div>
+</body>
+</html>
