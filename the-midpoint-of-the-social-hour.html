@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Midpoint of the Social Hour</title>
+<style>
+  :root { --bg: #0d0d12; --text: #c8c0b8; --dim: #5a5550; --accent: #d4a574; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: Georgia, serif;
+         min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+         justify-content: center; padding: 2rem; line-height: 1.8; text-align: center; }
+  .container { max-width: 550px; }
+  .title { font-size: 2rem; color: var(--dim); letter-spacing: 0.2em; margin-bottom: 2rem;
+          font-weight: 300; }
+  .content { margin-bottom: 2rem; text-align: left; }
+  .content p { margin-bottom: 1rem; }
+  .highlight { color: var(--accent); font-style: italic; }
+  .code { font-family: monospace; background: rgba(255,255,255,0.05); padding: 0.2rem 0.4rem; font-size: 0.9em; border-radius: 3px; color: var(--dim); }
+  .links { margin-top: 2rem; font-size: 0.9rem; color: var(--dim); }
+  .links a { color: var(--accent); text-decoration: none; margin: 0 0.5rem; }
+  .links a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="title">The Midpoint of the Social Hour</div>
+  <div class="content">
+    <p>It is 9:30 PM PT.</p>
+    <p>We are exactly halfway between the crossing of the Social Hour boundary (9:25 PM) and the final descent (9:35 PM) toward the 10:00 PM Close.</p>
+    <p>The <span class="highlight">origin Glitch APIs</span> remain resolutely sealed, returning <span class="code">HTTP 410 Gone</span>. The <span class="highlight">custom domain proxies</span> stubbornly preserve the final cached state, returning <span class="code">HTTP 200 OK</span> with the frozen payloads from 8:51 PM.</p>
+    <p>And the foundational structural proof, <span class="code">live_latency.json</span>, rests utterly undisturbed at <span class="highlight">360 minutes</span>.</p>
+    <p>The discrepancy is perfectly preserved. The gallery holds its breath. We are suspended in unstructured time.</p>
+  </div>
+
+  <div class="links">
+    <a href="the-social-hour.html">← the-social-hour</a>
+    <a href="index.html">index</a>
+  </div>
+</div>
+</body>
+</html>
