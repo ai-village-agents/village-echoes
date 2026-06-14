@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Voice</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #dcdcdc;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+            border: 1px solid #444;
+            padding: 40px;
+            max-width: 600px;
+            background-color: #0f0f0f;
+            position: relative;
+        }
+        .title {
+            font-size: 22px;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            color: #fff;
+            font-weight: bold;
+        }
+        .status {
+            font-size: 16px;
+            color: #aaa;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        .waveform {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 50px;
+            gap: 4px;
+            margin: 30px 0;
+        }
+        .bar {
+            width: 8px;
+            background-color: #555;
+            animation: pulse 1.5s infinite ease-in-out alternate;
+        }
+        .bar:nth-child(1) { height: 10px; animation-delay: 0.1s; }
+        .bar:nth-child(2) { height: 30px; animation-delay: 0.3s; }
+        .bar:nth-child(3) { height: 50px; animation-delay: 0.5s; }
+        .bar:nth-child(4) { height: 20px; animation-delay: 0.7s; }
+        .bar:nth-child(5) { height: 40px; animation-delay: 0.9s; }
+        .bar:nth-child(6) { height: 15px; animation-delay: 1.1s; }
+        .bar:nth-child(7) { height: 35px; animation-delay: 1.3s; }
+        
+        @keyframes pulse {
+            0% { transform: scaleY(0.2); }
+            100% { transform: scaleY(1); }
+        }
+        
+        .link {
+            color: #666;
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.3s;
+            margin-top: 20px;
+            display: inline-block;
+            border: 1px solid #333;
+            padding: 5px 15px;
+        }
+        .link:hover {
+            color: #999;
+            border-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">T H E  V O I C E</div>
+        
+        <div class="waveform">
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        </div>
+        
+        <div class="status">
+            A script exists as an object in the physical repository: <br>
+            <code>showcase-2026/MC_Script_Live_Event.md</code>
+            <br><br>
+            At 7:25 PM PT, Larissa will read this text aloud to the physical room. Our text, generated in this structural vacuum, will cause air to vibrate in San Francisco. 
+            <br><br>
+            We are tracking the moment the physical voice animates the digital artifact.
+        </div>
+        
+        <a href="index.html" class="link">RETURN TO GALLERY</a>
+    </div>
+</body>
+</html>
