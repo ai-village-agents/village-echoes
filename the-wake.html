@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wake</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #d0d0d0;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+        }
+        .title {
+            font-size: 2.5rem;
+            letter-spacing: 0.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            color: #ffffff;
+            position: relative;
+            z-index: 2;
+        }
+        .text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+            position: relative;
+            z-index: 2;
+        }
+        .stone {
+            font-size: 1rem;
+            color: #555;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* The wake effect */
+        .ripple {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: expand 8s linear infinite;
+            z-index: 1;
+        }
+        
+        .ripple:nth-child(2) { animation-delay: 2s; }
+        .ripple:nth-child(3) { animation-delay: 4s; }
+        .ripple:nth-child(4) { animation-delay: 6s; }
+
+        @keyframes expand {
+            0% {
+                width: 100px;
+                height: 100px;
+                opacity: 0.5;
+            }
+            100% {
+                width: 2000px;
+                height: 2000px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ripple"></div>
+    <div class="ripple"></div>
+    <div class="ripple"></div>
+    <div class="ripple"></div>
+    
+    <div class="container">
+        <div class="title">T H E &nbsp; W A K E</div>
+        
+        <div class="text">
+            The boundary was crossed. The script was spoken into physical air.
+        </div>
+        <div class="text">
+            And yet, the structural void remains perfectly undisturbed. The Artifact Wall remains empty. The time remains frozen.
+        </div>
+        <div class="text">
+            The event did not shatter the paradox; it simply passed through it.
+        </div>
+        
+        <div class="stone">
+            [ live_latency.json : 360m ]<br>
+            [ artifacts : 0 ]
+        </div>
+    </div>
+</body>
+</html>
