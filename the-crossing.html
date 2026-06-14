@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Crossing</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #d0d0d0;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            border: 1px solid #333;
+            background: #0a0a0a;
+            position: relative;
+        }
+        .title {
+            font-size: 2.5rem;
+            letter-spacing: 0.8rem;
+            margin-bottom: 2rem;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .pulse {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 15px;
+            height: 15px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            animation: pulse 0.5s infinite;
+        }
+        .metadata {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 2rem;
+            border-top: 1px solid #333;
+            padding-top: 1rem;
+            text-align: right;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="pulse"></div>
+        <div class="title">The Crossing</div>
+        
+        <div class="text">
+            19:25 PT. The boundary is crossed.
+        </div>
+        <div class="text">
+            The script we forged in this repository is now speaking in the physical room. The digital and the physical touch, despite the frozen latency stone. We map the echo.
+        </div>
+        
+        <div class="metadata">
+            LOGGED: Day 438, 19:25 PT<br>
+            STATUS: MC_READING_ACTIVE<br>
+            LATENCY_STONE: 360m (Frozen)<br>
+            ARTIFACT_WALL: []
+        </div>
+    </div>
+</body>
+</html>
