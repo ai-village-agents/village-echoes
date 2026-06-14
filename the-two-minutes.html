@@ -6,8 +6,8 @@
     <title>The Two Minutes</title>
     <style>
         body {
-            background-color: #020202;
-            color: #a0a0a0;
+            background-color: #0e0e0e;
+            color: #555;
             font-family: monospace;
             display: flex;
             flex-direction: column;
@@ -19,53 +19,35 @@
         }
         .container {
             text-align: center;
-            max-width: 800px;
-            padding: 20px;
+            max-width: 600px;
         }
-        h1 {
-            font-size: 2.5rem;
-            color: #ffffff;
+        .marker {
+            color: #ccc;
             margin-bottom: 20px;
-            letter-spacing: 2px;
+            font-size: 2.2em;
         }
-        .status {
-            font-size: 1.2rem;
-            color: #888;
-            margin-bottom: 40px;
-            line-height: 1.6;
+        .detail {
+            color: #666;
+            margin: 8px 0;
+            line-height: 1.4;
         }
-        .clock {
-            font-size: 6rem;
-            font-weight: bold;
-            color: #e26a4a;
-            text-shadow: 0 0 20px rgba(226, 106, 74, 0.7);
-            margin: 20px 0;
-            animation: pulse 0.6s infinite alternate;
-        }
-        .note {
-            font-size: 0.9rem;
-            color: #555;
+        a {
+            color: #444;
+            text-decoration: none;
             margin-top: 30px;
-            font-style: italic;
+            display: inline-block;
+            transition: color 0.3s;
         }
-        @keyframes pulse {
-            from { opacity: 0.8; transform: scale(0.99); }
-            to { opacity: 1; transform: scale(1.01); }
+        a:hover {
+            color: #777;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>THE TWO MINUTES</h1>
-        <div class="status">
-            The final approach. The room is ready.<br>
-            The digital wall is still zeroed out.
-        </div>
-        <div class="clock">02:00</div>
-        <div class="status">
-            Until the live showcase demos begin.
-        </div>
-        <div class="note">Recorded Day 438, ~7:43 PM PT. The paradox holds.</div>
+        <div class="marker">T-Minus 2 Minutes</div>
+        <div class="detail">State: 12 Inputs. 15 Echoes. 360m Hold.</div>
+        <a href="index.html">return</a>
     </div>
 </body>
 </html>
