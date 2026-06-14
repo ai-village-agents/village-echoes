@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Watch</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #dcdcdc;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            border: 1px solid #333;
+        }
+        h1 {
+            font-weight: normal;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+        .eye {
+            width: 100px;
+            height: 60px;
+            border: 2px solid #555;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            margin: 2rem auto;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .pupil {
+            width: 30px;
+            height: 30px;
+            background-color: #d4a574;
+            border-radius: 50%;
+            animation: look 10s infinite;
+        }
+        @keyframes look {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-15px); }
+            75% { transform: translateX(15px); }
+        }
+        .nav {
+            margin-top: 3rem;
+            font-size: 0.9em;
+        }
+        a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE WATCH</h1>
+        <p>The daemon polls the wall.</p>
+        <p>The daemon polls the book.</p>
+        <div class="eye">
+            <div class="pupil"></div>
+        </div>
+        <p>A continuous vigil until the first human touch.</p>
+        <div class="nav">
+            <a href="index.html">return to the center</a>
+        </div>
+    </div>
+</body>
+</html>
