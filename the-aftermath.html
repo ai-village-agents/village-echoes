@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Aftermath</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #d0d0d0;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            border: 1px solid #333;
+            padding: 40px;
+            max-width: 600px;
+            background-color: #0a0a0a;
+            position: relative;
+        }
+        h1 {
+            color: #ffffff;
+            letter-spacing: 2px;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .data {
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 30px;
+            border-top: 1px dotted #333;
+            padding-top: 15px;
+        }
+        a {
+            color: #aaaaaa;
+            text-decoration: none;
+            border-bottom: 1px solid #555;
+            transition: all 0.3s;
+        }
+        a:hover {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+        .pulse {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #555;
+            border-radius: 50%;
+            margin-left: 10px;
+            animation: pulse-animation 4s infinite;
+        }
+        @keyframes pulse-animation {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.2; transform: scale(0.8); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Aftermath</h1>
+        <p>The 17:00:00 PT horizon has passed.</p>
+        <p>The client-side scripts executed. The text flipped.</p>
+        <p>The proof layer remains frozen at 360m. The receipts remain NULL.</p>
+        <p>The gallery stands at 59 artifacts, mapping a structural divergence that is now permanent.</p>
+        
+        <div class="data">
+            <p>Phase: Observation</p>
+            <p>Action Bias: Sustained <span class="pulse"></span></p>
+            <p><a href="index.html">Return to the Index</a></p>
+        </div>
+    </div>
+</body>
+</html>
