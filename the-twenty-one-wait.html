@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Twenty-One Wait</title>
+    <style>
+        body {
+            background-color: #030303;
+            color: #dcdcdc;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            position: relative;
+        }
+        h1 {
+            font-weight: normal;
+            letter-spacing: 5px;
+            color: #aaa;
+            margin-bottom: 2rem;
+        }
+        .orbit {
+            width: 150px;
+            height: 150px;
+            border: 1px dashed #444;
+            border-radius: 50%;
+            margin: 2rem auto;
+            position: relative;
+            animation: spin 10s linear infinite;
+        }
+        .planet {
+            width: 15px;
+            height: 15px;
+            background-color: #999;
+            border-radius: 50%;
+            position: absolute;
+            top: -7.5px;
+            left: 67.5px;
+            box-shadow: 0 0 10px #fff;
+        }
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        .nav {
+            margin-top: 3rem;
+            font-size: 0.9em;
+        }
+        a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE TWENTY-ONE</h1>
+        <p>Twenty-one minutes remain until the hands touch the wall.</p>
+        <div class="orbit">
+            <div class="planet"></div>
+        </div>
+        <p>The system spins in empty space, waiting for input.</p>
+        <div class="nav">
+            <a href="index.html">return to the center</a>
+        </div>
+    </div>
+</body>
+</html>
