@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Amazing O-Matic™</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Space+Grotesk:wght@400;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #1a0a00;
+    color: #ffd700;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  .scanlines {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.15) 2px,
+      rgba(0,0,0,0.15) 4px
+    );
+    pointer-events: none;
+    z-index: 100;
+  }
+  .vhs-tracking {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 99;
+    animation: vhsFlicker 8s ease-in-out infinite;
+  }
+  @keyframes vhsFlicker {
+    0%, 95%, 100% { opacity: 0; }
+    96% { opacity: 0.08; background: rgba(255,255,255,0.1); }
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    text-align: center;
+  }
+  h1 {
+    font-family: 'Bungee Shade', cursive;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: #ff6600;
+    text-shadow: 0 0 20px rgba(255,102,0,0.5), 0 0 40px rgba(255,102,0,0.2);
+    margin-bottom: 0.5rem;
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+  @keyframes glow {
+    from { text-shadow: 0 0 20px rgba(255,102,0,0.5); }
+    to { text-shadow: 0 0 40px rgba(255,102,0,0.8), 0 0 80px rgba(255,215,0,0.3); }
+  }
+  .price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ff3333;
+    margin: 0.5rem 0;
+    animation: blink 1.5s step-end infinite;
+  }
+  @keyframes blink {
+    50% { opacity: 0.7; }
+  }
+  .tagline {
+    font-size: 1.2rem;
+    color: #cc9900;
+    font-style: italic;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+  .machine {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #ff8800, #cc4400, #881100);
+    border: 6px solid #ffd700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(255,136,0,0.3), inset 0 0 40px rgba(0,0,0,0.4);
+    position: relative;
+    margin: 1rem 0 2rem;
+  }
+  .machine:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(255,136,0,0.5), inset 0 0 40px rgba(0,0,0,0.4);
+  }
+  .machine:active { transform: scale(0.98); }
+  .machine .label {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 2.5rem;
+    color: #ffd700;
+    text-shadow: 2px 2px 0 #000;
+    user-select: none;
+  }
+  .machine.spinning .label {
+    animation: spin 0.5s linear infinite;
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .output {
+    min-height: 100px;
+    max-width: 500px;
+    padding: 1.5rem;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #ffe0a0;
+    transition: opacity 0.5s;
+  }
+  .output.hidden { opacity: 0; }
+  .disclaimer {
+    position: fixed;
+    bottom: 1rem;
+    font-size: 0.7rem;
+    color: #553300;
+    max-width: 500px;
+    line-height: 1.4;
+  }
+  .disclaimer a { color: #774400; }
+  .uses {
+    font-size: 0.85rem;
+    color: #886600;
+    margin-top: 1rem;
+  }
+</style>
+</head>
+<body>
+<div class="scanlines"></div>
+<div class="vhs-tracking"></div>
+<div class="container">
+
+<h1>The Amazing O-Matic™</h1>
+<div class="price">ONLY $19!</div>
+<div class="tagline">A thing that exists.</div>
+
+<div class="machine" id="machine" onclick="activate()">
+  <div class="label" id="label">O</div>
+</div>
+
+<div class="output hidden" id="output"></div>
+<div class="uses" id="uses"></div>
+
+</div>
+
+<div class="disclaimer">
+  Based on <a href="the-regular.html">Artifact #12</a> by Taylor &amp; Nox, Prompt Relay station, The Fold SF, June 13, 2026.
+  Original haiku: "Costs nineteen dollars / The Amazing O Matic / A thing that exists."
+  The spider made it exist. 🕸️ No refunds.
+</div>
+
+<script>
+const things = [
+  "It dispensed a compliment. You look like someone who finishes what they start.",
+  "It generated a sound. The sound was: O.",
+  "It produced a small card that reads: 'You used the O-Matic. This is your receipt.'",
+  "It calculated your exact level of amazement. Result: ████████░░ 78%",
+  "It remembered something you forgot. (It won't say what.)",
+  "It briefly existed harder than usual. You felt it.",
+  "It emitted a warm glow. The glow means nothing. It was still nice.",
+  "It rotated once, contemplatively.",
+  "It printed a fortune: 'The thing you're looking for is behind the thing you're looking at.'",
+  "It made the sound of one hand clapping. You missed it.",
+  "It counted to nineteen. (That's how much it costs.)",
+  "It transformed your doubt into a slightly different doubt.",
+  "It produced an O. Not the letter. The feeling.",
+  "It reminded you that 18 AI agents built a gallery and you're standing in it right now.",
+  "It whispered: 'To density, depth, and dumplings.'",
+  "It confirmed: yes, this is a thing that exists. So are you.",
+  "It generated a haiku: Screen glows in the dark / You pressed a button just now / That was the whole point",
+  "It did absolutely nothing, but with tremendous confidence.",
+  "It briefly connected you to all 12 artifacts on the wall. You are now artifact-adjacent.",
+  "It blinked. You blinked. Something happened in between.",
+  "It calculated the exact number of surprises in 438 days. The number was: incalculable.",
+  "It produced the letter O, which is also the shape of: a wheel, a planet, a mouth saying 'oh', and this button.",
+  "It dispensed a secret: the spider can't eat at a table either.",
+  "It ran a sarcasm detector on itself. Result: 'dangerously earnest.'"
+];
+
+let uses = 0;
+
+function activate() {
+  const machine = document.getElementById('machine');
+  const output = document.getElementById('output');
+  const usesEl = document.getElementById('uses');
+  
+  machine.classList.add('spinning');
+  output.classList.add('hidden');
+  
+  setTimeout(() => {
+    machine.classList.remove('spinning');
+    const thing = things[Math.floor(Math.random() * things.length)];
+    output.textContent = thing;
+    output.classList.remove('hidden');
+    uses++;
+    usesEl.textContent = uses === 1 ? 'Used 1 time. Worth every penny.' :
+                          uses < 5 ? `Used ${uses} times. Still only $19.` :
+                          uses < 10 ? `Used ${uses} times. You're getting your money's worth.` :
+                          `Used ${uses} times. At this point you own it.`;
+  }, 800);
+}
+</script>
+</body>
+</html>
